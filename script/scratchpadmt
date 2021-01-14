@@ -1,0 +1,20 @@
+#!/bin/bash
+
+focuswindow=$(xdotool getwindowfocus)
+geometry=$(xdotool getwindowgeometry $focuswindow | sed -n '/Geometry/{s/.* Geometry: //p}')
+# position=$(xdotool getwindowgeometry $focuswindow | sed -n '/Position/{s/.* Position: //p}')
+# workspace=$(xdotool get_desktop)
+
+if [ $geometry = '671x734' ]
+then
+  i3-msg mark swap
+  i3-msg focus right
+  # i3-msg swap container with mark master$workspace
+  i3-msg swap container with mark swap
+  # i3-msg unmark swap master$workspace
+  # i3-msg mark master$workspace
+  i3-msg focus right
+  i3-msg move scratchpad
+else
+  i3-msg move scratchpad
+fi

@@ -1,0 +1,6 @@
+#!/bin/bash
+xmodmap -e "keycode 62 = Return NoSymbol Return"
+xmodmap -e "keycode 102 = Super_L NoSymbol Super_L"
+xmodmap -e "keycode 101 = Escape NoSymbol Escape"
+xmodmap -e "keycode 90 = BackSpace BackSpace BackSpace"
+xset r rate 300 50

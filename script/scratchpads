@@ -1,0 +1,3 @@
+#!/bin/bash
+i3-scratchpad-dmenu.py &&
+i3-msg floating toggle

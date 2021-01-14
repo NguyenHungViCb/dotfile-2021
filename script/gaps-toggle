@@ -1,0 +1,20 @@
+#!/bin/sh
+focuswindow=$(xdotool getwindowfocus)
+geometry=$(xdotool getwindowgeometry $focuswindow | sed -n '/Geometry/{s/.* Geometry: //p}')
+# if [[ $geometry = '683x768' || $geometry = '683x746' || $geometry = '683x362' || $geometry = '1366x746' || $geometry = '1366x768' || $geometry = '546x768' ]]
+#     then
+#         i3-msg gaps inner current set 8
+#         i3-msg gaps top current set 18
+#     else
+#         i3-msg gaps inner current set 0
+#         i3-msg gaps top current set 0
+# fi
+if [[ $geometry == *"768"* || $geometry == *"1366"* ||  $geometry == *"384"* || $geometry == *"683"* ]]
+then
+    # echo "no gaps"
+        i3-msg gaps inner current set 8
+        i3-msg gaps top current set 18
+else
+        i3-msg gaps inner current set 0
+        i3-msg gaps top current set 0
+fi

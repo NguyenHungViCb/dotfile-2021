@@ -1,0 +1,18 @@
+#!/bin/bash
+
+currentEngine=$(ibus engine)
+
+if [[ $currentEngine = 'Bamboo' ]]
+then
+	ibus engine xkb:jp::jpn
+	remapShiftToEnter
+else
+	ibus engine Bamboo
+fi
+
+if [ $(ibus engine) = 'Bamboo' ]
+then
+	polybar-msg hook checkengine 2
+else
+	polybar-msg hook checkengine 1
+fi

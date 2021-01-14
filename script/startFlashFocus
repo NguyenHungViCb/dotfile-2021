@@ -1,0 +1,13 @@
+#!/bin/sh
+# Sometime flashfocus failed to start when I restart i3
+# This script make sure it alway start when i3 is restarted
+# Author: Nick
+
+statusd=$(pidof flashfocus) >> /dev/null 2>&1
+if [ -z statusd ]
+then
+  flashfocus >> /dev/null 2>&1 &
+else
+  killall flashfocus
+  flashfocus >> /dev/null 2>&1 &
+fi

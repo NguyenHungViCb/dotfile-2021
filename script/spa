@@ -1,0 +1,17 @@
+#!/bin/bash
+if [ "$1" = "-a" ]
+then
+  yay -Slq | fzf -m --preview 'cat <(yay -Si {1}) <(yay -Fl {1} | awk "{print \$2}")' | xargs -ro  yay -S
+elif [ "$1" = "-r" ]
+then
+  pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns
+elif [ "$1" = "-i" ]
+then
+  pacman -Slq | fzf -m --preview 'cat <(pacman -Si {1}) <(pacman -Fl {1} | awk "{print \$2}")' | xargs -ro sudo pacman -S
+else
+  echo "Use one of the following arguments"
+  echo "-i - Install from official repositories"
+  echo "-a - Install from AUR"
+  echo "-r - Remove installed packages"
+  echo "-t - Query installed packages by time"
+fi

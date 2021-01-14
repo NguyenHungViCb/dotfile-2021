@@ -1,0 +1,504 @@
+# i3 config file (v4)
+#
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+
+set $mod Mod4
+set $sup Mod1
+set $Locker locker
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango: UbuntuMono Nerd Font, MesloLGS NF, FontAwesome5Free, FontAwesome5Brands, UbuntuNerdFont, 11
+
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet
+
+# Use pactl to adjust volume in PulseAudio.
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# Use brightnessctl to adjust screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5%
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5%
+
+# Colors
+set $bg-color 		          #323d43
+set $inactive-bg-color      #576268
+set $text-color             #32302F
+set $inactive-text-color    #A89984
+set $urgent-bg-color        #E53935
+set $mint-color             #87c095
+
+# Window color
+# 			                border		       background	  text		    indicator		        child
+client.focused		      $mint-color	     $bg-color	  $text-color	$mint-color		      $mint-color
+client.unfocused	      $bg-color	       $bg-color	  $text-color	$bg-color	
+client.focused_inactive $bg-color	       $bg-color	  $text-color	$bg-color	
+client.urgent		        $urgent-bg-color $bg-color	  $text-color	$urgent-bg-color	  $urgent-bg-color
+
+exec --no-startup-id launch_polybar
+
+# Change workspace border
+for_window [class="^.*"] border pixel 0
+
+# config i3-gaps
+gaps top 18
+gaps bottom 0
+gaps right 0
+gaps left 0
+gaps inner 8
+
+# smart boder
+smart_borders on
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# Set default terminal
+set $term alacritty
+
+# ========================================================================
+# 				              [KEYS BINDING]
+# ========================================================================
+
+# ==============================Mod key binding===========================
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Load .Xresources
+exec xrdb ~/.Xresources
+
+# for_window [class=".*"] split toggle
+
+# kill focused window
+bindsym $mod+Shift+Q exec killwindow
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h mark swap; focus left; swap container with mark swap; unmark swap; focus left
+bindsym $mod+Shift+j mark swap; focus down; swap container with mark swap; unmark swap; focus down
+bindsym $mod+Shift+k mark swap; focus up; swap container with mark swap; unmark swap; focus up
+bindsym $mod+Shift+l mark swap; focus right; swap container with mark swap; unmark swap; focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left   mark swap; focus left; swap container with mark swap; unmark swap; focus left
+bindsym $mod+Shift+Down   mark swap; focus down; swap container with mark swap; unmark swap; focus down
+bindsym $mod+Shift+Up     mark swap; focus up; swap container with mark swap; unmark swap; focus up     
+bindsym $mod+Shift+Right  mark swap; focus right; swap container with mark swap; unmark swap; focus right
+
+# Manual tiling
+bindsym $mod+$sup+l move Right
+bindsym $mod+$sup+h move Left
+bindsym $mod+$sup+j move Down
+bindsym $mod+$sup+k move Up
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f exec --no-startup-id fullscreen 
+# ; for_window[class="^mpv"] floating, for_window [class="^mpv"] resize set 862 485, for_window [class="^mpv"] move position 40 122
+
+# toggle tiling / floating
+bindsym $mod+Shift+space exec --no-startup-id floater
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 exec --no-startup-id moveworkspace 1
+bindsym $mod+Shift+2 exec --no-startup-id moveworkspace 2
+bindsym $mod+Shift+3 exec --no-startup-id moveworkspace 3
+bindsym $mod+Shift+4 exec --no-startup-id moveworkspace 4
+bindsym $mod+Shift+5 exec --no-startup-id moveworkspace 5
+bindsym $mod+Shift+6 exec --no-startup-id moveworkspace 6
+bindsym $mod+Shift+7 exec --no-startup-id moveworkspace 7
+bindsym $mod+Shift+8 exec --no-startup-id moveworkspace 8
+bindsym $mod+Shift+9 exec --no-startup-id moveworkspace 9
+bindsym $mod+Shift+0 exec --no-startup-id moveworkspace 10
+
+# Set shut down, restart and locking features
+bindsym $mod+$sup+q mode "$mode_system"
+
+set $mode_system (l) , (e) , (s) , (h) 鈴, (r) ﰇ, (Shift+s) ⏻
+
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# start a terminal
+bindsym $mod+Return exec $term
+
+# Dropdown terminal
+bindsym $mod+Shift+Return exec --no-startup-id explorer
+bindsym $mod+Shift+a      exec tdrop -a -y 0 -h 380 -n 3 kitty
+bindsym $mod+Shift+d      exec tdrop -a -y 0 -x 380 -h 750 -w 600 -n 4 kitty
+
+# open math terminal
+bindsym $mod+Shift+m [title="math"] scratchpad show; [title="math"] move position center
+
+# move focus window to scratchpad
+bindsym $mod+Shift+minus exec scratchpadmt
+
+# show window from scratchpad 
+bindsym $mod+Shift+s exec scratchpads
+
+# Switch between floating and tiling
+bindsym $mod+Henkan_Mode focus mode_toggle
+
+# Grid for floating
+# bindsym $mod+g exec /bin/bash ~/.config/i3grid/manager.sh
+# bindsym $mod+c exec "python3 -m i3grid reset"
+bindsym $mod+g exec gaps-toggle
+
+# Make window stiky
+bindsym $mod+s sticky toggle
+
+# run dmenu on shortcut
+bindsym $mod+space exec dmenu_run -l 10
+
+# -----------------------------i3 resize shortcut-------------------------
+
+# Resizing by 1
+bindsym $mod+Ctrl+Right resize shrink width 1 px or 1 ppt
+bindsym $mod+Ctrl+Up resize grow height 1 px or 1 ppt
+bindsym $mod+Ctrl+Down resize shrink height 1 px or 1 ppt
+bindsym $mod+Ctrl+Left resize grow width 1 px or 1 ppt
+
+# Resizing by 10
+bindsym $mod+Ctrl+Shift+Right resize shrink width 10 px or 10 ppt
+bindsym $mod+Ctrl+Shift+Up resize grow height 10 px or 10 ppt
+bindsym $mod+Ctrl+Shift+Down resize shrink height 10 px or 10 ppt
+bindsym $mod+Ctrl+Shift+Left resize grow width 10 px or 10 ppt
+
+# Resizing by 1
+bindsym $mod+Ctrl+h resize shrink width 1 px or 1 ppt
+bindsym $mod+Ctrl+k resize grow height 1 px or 1 ppt
+bindsym $mod+Ctrl+j resize shrink height 1 px or 1 ppt
+bindsym $mod+Ctrl+l resize grow width 1 px or 1 ppt
+
+# Resizing by 10
+bindsym $mod+Ctrl+Shift+h resize shrink width 10 px or 10 ppt
+bindsym $mod+Ctrl+Shift+k resize grow height 10 px or 10 ppt
+bindsym $mod+Ctrl+Shift+j resize shrink height 10 px or 10 ppt
+bindsym $mod+Ctrl+Shift+l resize grow width 10 px or 10 ppt
+
+# Quick switch workspace
+bindsym $mod+Zenkaku_Hankaku workspace next
+
+# workspace back and forth (with/without active container)
+workspace_auto_back_and_forth yes
+bindsym $mod+Tab workspace back_and_forth
+
+# =============================================================================
+
+# ===============================Alt key binding==========================
+
+# focus mode
+mode "quiet" {
+    bindsym q exec quiet-cmd toggle ; mode "default"
+    bindsym b exec hideIt.sh -C Polybar --toggle
+    # Resize the window in quiet mode
+    bindsym s exec quiet-cmd resize small
+    bindsym m exec quiet-cmd resize medium
+    bindsym l exec quiet-cmd resize large
+    # back to normal
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+    bindsym Caps_Lock mode "default"
+    bindsym $mod+d mode "default"
+}
+
+# Run android studio on shortcut
+bindsym $sup+a exec studio
+
+# Run brave on shortcut
+bindsym $sup+b exec brave
+
+# Run VScode on shortcut
+bindsym $sup+c exec code
+
+# Run Firefox on shortcut
+bindsym $sup+f exec firefox
+
+# Run IntelliJ on shortcut
+bindsym $sup+i exec idea
+
+# Run pycharm on shortcut
+bindsym $sup+p exec charm
+
+bindsym $mod+Shift+w exec quiet-cmd switch
+bindsym $mod+q mode "quiet"
+
+# Run rider on shortcut
+bindsym $sup+r exec rider
+
+# Run spotify on shortcut
+bindsym $sup+s exec spotify
+
+# Run flameshot on shortcut
+bindsym $sup+x exec "flameshot gui"
+
+# Run remmina on startup
+# bindsym $sup+p exec remmina
+
+# Run zathura on shortcut
+bindsym $sup+z exec zathura
+
+# Run pomodoro timer
+# bindsym $sup+t exec /home/nick/Documents/script/pomodoro
+
+# Run openvpn on shortcut
+# bindsym $sup+o exec openvpn /home/nick/Documents/script/openvpn-switcher
+
+# Detect focus window
+bindsym $sup+space exec flash_window
+# ----------------------------Alt+Shift key binding-----------------------
+bindsym $sup+Shift+Return exec ibus-engine-switcher
+
+# Open pulsemixer
+bindsym $sup+Shift+p exec "kitty -e pulsemixer"
+
+# ========================================================================
+# ========================================================================
+
+# =============================================================================
+# 				                  [CUSTTOM BEHAVIOR]
+# =============================================================================
+
+# ==========================Workspace assign==============================
+
+# Firefox
+assign [class="firefox" window_type="normal"] 2
+assign [class="Brave-browser" window_type="normal"] 2
+
+# Vscode
+assign [Class="Code" window_type="normal"] 3
+
+# Jetbrains datagrip
+assign [class="jetbrains-datagrip" window_type="normal"] 6
+
+# Jetbrains products
+assign [class="^jetbrains-.+" window_type="normal"] 4
+
+# Mpv
+assign [class="mpv" window_type="normal"] 8
+
+# Zathura
+assign [class="Zathura" window_type="normal"] 7
+
+# =============================================================================
+
+# move dialog window to top
+for_window [class="^jetbrains-.+"][window_type=dialog] focus
+
+# Android studio setting
+for_window [instance="Settings for New Projects"] move position center
+for_window [title="Android Emulator - Pixel_3a_API_30_x86:5554"] floating enable
+for_window [title="Android Emulator - Pixel_3a_API_30_x86:5554"] border pixel 0 
+for_window [title="Android Emulator - Pixel_2_API_28:5554"] floating enable
+# for_window [title="Android Emulator - Pixel_2_API_28:5554"] border 
+
+for_window [title="Emulator"] border pixel 0 
+
+# Jetbrains IntelliJ
+# for_window [Class="Jetbrains"] move position center
+
+# xtreme download manager
+for_window [class="xdman-Main"] floating enable
+for_window [class="xdman-Main"] resize set 100 100
+for_window [class="xdman-Main"] position 50 50
+
+# calcurse
+for_window [title="calcurse" class="$term"] floating enable
+for_window [title="calcurse" class="$term"] resize set 500 500
+for_window [title="calcurse" class="$term"] move position center
+
+# Nmtui
+for_window [title="nmtui" class="$term"] floating enable
+for_window [title="nmtui" class="$term"] resize set 700 700
+for_window [title="nmtui" class="$term"] move position center
+
+# File Upload Firefox
+for_window [title="File Upload" class="Firefox"] floating enable
+for_window [title="File Upload" class="Firefox"] resize set 700 700
+for_window [title="File Upload" class="Firefox"] move position center
+for_window [title="Save Image" class="Firefox"] resize set 700 700
+for_window [title="Save Image" class="Firefox"] move position center
+
+# mpv behavior
+for_window [class="^mpv"] border pixel 0
+for_window [class="^mpv"] floating enable
+for_window [class="^mpv"] resize set 862 485
+# for_window [class="^mpv"] resize set 1300 620
+# for_window [class="^mpv"] move position center
+for_window [class="^mpv"] move position 40 122
+for_window [class="^mpv"] mark mpv
+
+# konsole
+# for_window [class="konsole"] border pixel 0
+for_window [class="konsole"] floating enable
+# for_window [class="konsole"] resize set 1000 700
+# for_window [class="konsole"] move position center
+
+# xterm
+for_window [class="XTerm"] border pixel 0
+
+# feh
+for_window [class="feh*"] border pixel 0
+
+# Spotify
+for_window [class="Spotify"] move scratchpad
+
+for_window [class="alacritty"] show_marks yes
+
+# Sxiv
+for_window [class="Sxiv"] floating enable
+
+# Dropdown terminal
+for_window [title="math" class="Alacritty"] floating enable
+for_window [title="math" class="Alacritty"] resize set 400 400
+for_window [title="math" class="Alacritty"] border pixel 2 pixel
+for_window [title="math" class="Alacritty"] move scratchpad
+
+# pulse mixer
+for_window [title="pulsemixer"] floating toggle
+for_window [title="pulsemixer"] resize set 669 145
+for_window [title="pulsemixer"] move position 690 27
+
+# GenyMotion
+for_window [instance="player" class="Genymotion Player"] floating enable
+# for_window [instance="player" class="Genymotion Player"] resize set 1080 2220
+
+for_window [instance="kitty"] border pixel 1 pixel
+
+# for_window [class="VirtualBox Machine"] floating enable
+# for_window [class="VirtualBox Machine"] resize set 1366 768
+# Plasma compatibility improvements
+
+# Brave
+for_window [title="Save File" class="Brave"] resize set 700 700
+for_window [title="Save File" class="Brave"] move position center
+
+# Pictures in Pictures
+# for_window [title="Picture in picture"] resize set 810 655
+# for_window [title="Picture in picture"] move position 4 109
+
+# ========================================================================
+# 				                  [CUSTOM COMMANDS]
+# ========================================================================
+
+# ========================================================================
+
+# Start picom on startup
+exec_always start-picom
+
+# Start blurwal on startup
+# exec blurwal -m 1 -b 6 --backend feh
+# Set up wallpaper
+exec_always feh --bg-scale /home/nick/Pictures/forestpath.jpg
+
+# Start i3 alternating layout on start up
+exec_always --no-startup-id autotiling
+
+# Run dunst on startup
+exec_always --no-startup-id dunst
+
+# Auto remap shift key
+exec_always remapShiftToEnter
+
+# Switch ibus engine on start up
+exec ibus-engine-switcher
+
+# start terminal on startup
+exec $term
+
+# Start flash focus on startup
+exec_always startFlashFocus
+
+# Swallow
+#exec_always --no-startup-id i3-swallow
+
+# Dropdow terminal
+exec --no-startup-id $term -t math -e R
+
+# Start xob
+#exec --no-startup-id "pulse-volume-watcher.py | xob"
+
+# Start ufetch ranger on startup
+# exec --no-startup-id alacritty -e start-ufetch-ranger
+
+# Run ibus on startup
+# exec_always ibus-daemon --xim
+
+# Plasma compatibility improvements
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+
+for_window [class="yakuake"] floating enable
+for_window [class="systemsettings"] floating enable
+for_window [class="plasmashell"] floating enable;
+for_window [class="Plasma"] floating enable; border none
+for_window [title="plasma-desktop"] floating enable; border none
+for_window [title="win7"] floating enable; border none
+for_window [class="krunner"] floating enable; border none
+for_window [class="Kmix"] floating enable; border none
+for_window [class="Klipper"] floating enable; border none
+for_window [class="Plasmoidviewer"] floating enable; border none
+for_window [class="(?i)*nextcloud*"] floating disable
+for_window [class="plasmashell" window_type="notification"] border none, move right 700px, move down 450px
+no_focus [class="plasmashell" window_type="notification"]
+for_window [title="Desktop — Plasma"] kill; floating enable; border none

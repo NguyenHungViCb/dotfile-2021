@@ -1,0 +1,16 @@
+#!/bin/bash
+# Sometime picom failed to start when I restart i3
+# This script make sure picom alway start when i3 is restarted
+# Author: Nick
+
+
+isActive=$(pidof picom) >> /dev/null 2>&1
+
+if [ -z $isActive ]
+then
+	picom --experimental-backend -f -c
+else
+  killall picom >> /dev/null 2>&1 &&
+  sleep 0.1
+	picom --experimental-backend -f -c
+fi

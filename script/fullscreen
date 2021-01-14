@@ -1,0 +1,26 @@
+#!/bin/bash
+
+toFull(){
+  if [ $geometry != '1366x768' ]
+  then
+    i3-msg resize set 1366 768
+    i3-msg move position 0 0
+   fi
+}
+
+isfloating=$(i3get -a -r f)
+focuswindow=$(xdotool getwindowfocus)
+geometry=$(xdotool getwindowgeometry $focuswindow | sed -n '/Geometry/{s/.* Geometry: //p}')
+
+if [ "$isfloating" = "user_on" ]
+then
+  if [ $geometry = '1366x768' ]
+  then
+    floater
+  else
+    toFull
+  fi
+else
+  floater
+  toFull
+fi
