@@ -1,11 +1,15 @@
 #! /bin/sh
 
+bspc rule -r "*"
+
 startFlashFocus &
 feh --bg-scale $HOME/Pictures/forestpath.jpg &
 start-picom &
 launch_polybar &
 sleep 0.5s &&
 initKeyboard &
+subscribe &
+wmname LG3D &
 
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9 10
@@ -26,5 +30,7 @@ bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 bspc rule -a VSCodium desktop='^3'
-
-#initSystem &
+bspc rule -a firefox desktop='^2'
+bspc rule -a Sxiv state=floating
+bspc rule -a jetbrains-rider  desktop='^4'
+bspc rule -a jetbrains-datagrip desktop='=^6'

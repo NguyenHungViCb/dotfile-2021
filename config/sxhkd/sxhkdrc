@@ -157,3 +157,14 @@ super + shift + Return
 super + shift + @space
 	floater
 
+Print
+	flameshot gui
+
+super + shift + a
+	tdrop -a -y 0 -h 380 -n 3 kitty
+
+super + shift + d
+	tdrop -a -y 0 -x 380 -h 750 -w 600 -n 4 kitty
+
+alt + shift + Return
+	ibus-engine-switcher
