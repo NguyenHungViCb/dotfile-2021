@@ -1,12 +1,12 @@
 #!/bin/sh
 #
-# ufetch-manjaro - tiny system info for manjaro
+# ufetch-arch - tiny system info for arch
 
 ## INFO
 
 # user is already defined
-host="$(hostname)"
-os='Manjaro'
+host="$(cat /etc/hostname)"
+os='Arch Linux'
 kernel="$(uname -sr)"
 uptime="$(uptime -p | sed 's/up //')"
 packages="$(pacman -Q | wc -l)"
@@ -63,23 +63,21 @@ if [ -x "$(command -v tput)" ]; then
 fi
 
 # you can change these
-lc="${reset}${bold}${cyan}"        # labels
-nc="${reset}${bold}${cyan}"        # user and hostname
+lc="${reset}${bold}${blue}"         # labels
+nc="${reset}${bold}${blue}"         # user and hostname
 ic="${reset}"                       # info
-c0="${reset}${cyan}"               # first color
+c0="${reset}${blue}"                # first color
 
 ## OUTPUT
 
 cat <<EOF
 
-${c0}     ∧＿∧      ${nc}${USER}${ic}@${nc}${host}${reset}
-${c0}    ( ･ω･)     ${lc}        ${ic}${os}${reset}
-${c0}   ―∪――――∪―    ${lc}        ${ic}${kernel}${reset}
-${c0}   ________    ${lc}        ${ic}${uptime}${reset}
-${c0}    |    |     ${lc}        ${ic}${packages}${reset}
-${c0}    |    |     ${lc}        ${ic}${shell}${reset}
-${c0}     U  U      ${lc}类       ${ic}${ui}${reset}
+${c0}        /\\         ${nc}${USER}${ic}@${nc}${host}${reset}
+${c0}       /  \\        ${lc}        ${ic}${os}${reset}
+${c0}      /\\   \\       ${lc}        ${ic}${kernel}${reset}
+${c0}     /  __  \\      ${lc}        ${ic}${uptime}${reset}
+${c0}    /  (  )  \\     ${lc}  	    ${ic}${packages}${reset}
+${c0}   / __|  |__\\\\    ${lc}        ${ic}${shell}${reset}
+${c0}  /.\`        \`.\\   ${lc}类       ${ic}${ui}${reset}
 
 EOF
-
-bars

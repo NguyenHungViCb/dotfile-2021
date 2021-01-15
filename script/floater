@@ -2,43 +2,15 @@
 
 focuswindow=$(xdotool getwindowfocus)
 geometry=$(xdotool getwindowgeometry $focuswindow | sed -n '/Geometry/{s/.* Geometry: //p}')
-workspace=$(xdotool get_desktop)
-isfloating=$(i3get -a -r f)
+isfloating=$(bspc query -N -n $focuswindow.floating)
 
-if [[ $geometry = '671x734' || $geometry = '683x768' ]]
+if [[ -z $isfloating ]]
 then
-  i3-msg mark swap
-  i3-msg focus right
-  i3-msg swap container with mark swap
-  i3-msg unmark swap
-  i3-msg focus right
-  i3-msg floating toggle
-elif [ $isfloating = 'user_on' ]
-then
-  i3-msg floating toggle
-  focuswindow=$(xdotool getwindowfocus)
-  geometry=$(xdotool getwindowgeometry $focuswindow | sed -n '/Geometry/{s/.* Geometry: //p}')
-  if [[ $geometry = '1350x244' || $geometry = *"1366"* ]]
-  then
-    i3-msg move left
-    echo left
-  elif [[ $geometry = '330x734' || $geometry = '342x768' ]]
-  then
-    i3-msg move down
-    echo down
-  elif [ $geometry = '671x180' ]
-  then
-    i3-msg move right
-    echo right
-  elif [ $geometry = '1350x372' ]
-  then
-    i3-msg move right
-    echo right
-  elif [ $geometry = '444x734' ]
-  then
-    i3-msg move left
-    echo left
-  fi
+	if [[ $geometry = 698x734 || $geometry = 710x768 ]]
+	then
+		bspc node -s east
+	fi
+	bspc node -t floating
 else
-  i3-msg floating toggle
+	bspc node -t tiled
 fi
