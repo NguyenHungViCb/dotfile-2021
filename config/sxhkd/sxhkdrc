@@ -93,20 +93,20 @@ super + {_,shift + }{1-9,0}
 #
 
 # preselect the direction
-super + alt + {h,j,k,l}
-	bspc node -p {west,south,north,east}
+# super + alt + {h,j,k,l}
+# 	bspc node -p {west,south,north,east}
 
-# preselect the ratio
-super + ctrl + {1-9}
-	bspc node -o 0.{1-9}
+# # preselect the ratio
+# super + ctrl + {1-9}
+# 	bspc node -o 0.{1-9}
 
-# cancel the preselection for the focused node
-super + ctrl + space
-	bspc node -p cancel
+# # cancel the preselection for the focused node
+# super + ctrl + space
+# 	bspc node -p cancel
 
-# cancel the preselection for the focused desktop
-super + ctrl + shift + space
-	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+# # cancel the preselection for the focused desktop
+# super + ctrl + shift + space
+# 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
 #
 # move/resize
@@ -114,14 +114,14 @@ super + ctrl + shift + space
 
 # expand a window by moving one of its side outward
 super + ctrl + {h,j,k,l}
-	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+	bspc node -z {left -5 0,bottom 0 5,top 0 -5,right 5 0}
 
 # contract a window by moving one of its side inward
 super + ctrl + shift + {h,j,k,l}
-	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+	bspc node -z {right -5 0,top 0 5,bottom 0 -5,left 5 0}
 
 # move a floating window
-super + {Left,Down,Up,Right}
+super + alt {h,j,k,l}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 # Use pactl to control volume
@@ -157,14 +157,22 @@ super + shift + Return
 super + shift + @space
 	floater
 
+# Desktop screenshot
 Print
 	flameshot gui
 
+# Horizontal dropdown terminal
 super + shift + a
 	tdrop -a -y 0 -h 380 -n 3 kitty
 
+# Vertical dropdown terminal
 super + shift + d
 	tdrop -a -y 0 -x 380 -h 750 -w 600 -n 4 kitty
 
+# Mathematic dropdown terminal
+super + shift + m
+	tdrop -a -y 185 -x 495 -h 400 -w 400 -n 5 kitty -e R
+
+# Change ibus engine
 alt + shift + Return
 	ibus-engine-switcher
