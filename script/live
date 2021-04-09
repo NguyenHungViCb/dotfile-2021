@@ -1,0 +1,20 @@
+#!/bin/bash
+
+dir=$1
+
+if [[ -z $dir ]]
+then
+  dir=$(pwd)
+fi
+
+styledir="$dir/styles"
+# echo $styledir
+
+# if [[ -d $styledir ]]
+# then
+#   sass --watch "$styledir/style.scss" "$styledir/style.css" >> /dev/null 2>&1 &
+# else
+#   echo "Please create a style folder with a style.scss file or modify the script to match your set up"
+# fi
+  
+live-server "$dir" >> /dev/null 2>&1 &

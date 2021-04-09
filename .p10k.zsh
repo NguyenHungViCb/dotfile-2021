@@ -202,7 +202,7 @@
 
   ##################################[ dir: current directory ]##################################
   # Current directory background color.
-  typeset -g POWERLEVEL9K_DIR_BACKGROUND='cyan'
+  typeset -g POWERLEVEL9K_DIR_BACKGROUND='green'
   # Default current directory foreground color.
   typeset -g POWERLEVEL9K_DIR_FOREGROUND='black'
   # If directory is too long, shorten some of its segments to the shortest possible unique
@@ -473,7 +473,7 @@
   typeset -g POWERLEVEL9K_STATUS_OK=true
   typeset -g POWERLEVEL9K_STATUS_OK_VISUAL_IDENTIFIER_EXPANSION='ok'
   typeset -g POWERLEVEL9K_STATUS_OK_FOREGROUND='black'
-  typeset -g POWERLEVEL9K_STATUS_OK_BACKGROUND='cyan'
+  typeset -g POWERLEVEL9K_STATUS_OK_BACKGROUND='green'
 
   # Status when some part of a pipe command fails but the overall exit status is zero. It may look
   # like this: 1|0.

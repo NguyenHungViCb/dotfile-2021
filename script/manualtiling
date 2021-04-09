@@ -1,0 +1,11 @@
+#!/bin/sh
+
+bspc node -f $1
+
+if [ $1 = 'east' ]
+then
+  bspc node --presel-dir south -i
+elif [ $1 = 'west' ]
+then
+
+

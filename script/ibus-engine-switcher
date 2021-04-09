@@ -2,17 +2,17 @@
 
 currentEngine=$(ibus engine)
 
-if [[ $currentEngine = 'Bamboo' ]]
+if [[ $currentEngine = *'Bamboo'* ]]
 then
 	ibus engine xkb:jp::jpn
 	remapShiftToEnter
+	polybar-msg hook checkengine 1
 else
 	ibus engine Bamboo
+	polybar-msg hook checkengine 2
 fi
 
-if [ $(ibus engine) = 'Bamboo' ]
-then
-	polybar-msg hook checkengine 2
-else
-	polybar-msg hook checkengine 1
-fi
+# if [ $(ibus engine) = *'Bamboo'* ]
+# then
+# else
+# fi

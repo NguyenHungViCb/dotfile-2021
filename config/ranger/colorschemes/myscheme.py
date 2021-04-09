@@ -19,7 +19,7 @@ class base(ColorScheme):
                 fg = 7
                 bg = 1
             if context.border:
-                fg = cyan
+                fg = green
             if context.image:
                 fg = 146
             if context.video:
@@ -33,7 +33,7 @@ class base(ColorScheme):
                 fg = 1
             if context.directory:
                 attr |= bold
-                fg = cyan
+                fg = green
             elif context.executable and not \
                     any((context.media, context.container,
                        context.fifo, context.socket)):
@@ -76,7 +76,7 @@ class base(ColorScheme):
             if context.hostname:
                 fg = context.bad and 8 or 7
             elif context.directory:
-                fg = cyan
+                fg = green
             elif context.tab:
                 if context.good:
                     fg = 1

@@ -2,12 +2,14 @@
 
 bspc subscribe node_add | while read line
 do
-  idwm=$(echo "$line" | awk '{print $5}')
-  wdname=$(xdotool getwindowname $idwm)
+  desktopId=$(echo "$line" | awk '{print $5}')
+  # desktopId=$(xdotool getwindowname $idwm)
+  # windowNum=$(bspc query -N -d $desktopId | grep -f <(bspc query -N -n .leaf) | wc -l)
   # echo $wdname
-  if [ "$wdname" = "Enter name of file to save to…" ]
-  then
-    # bspc node $idwm -t floating
-    xdo resize -t $idwm -w -500 -h -500
-  fi
+  # echo $windowNum
+  # if [ "$wdname" = "Enter name of file to save to…" ]
+  # then
+  #   # bspc node $idwm -t floating
+  #   xdo resize -t $idwm -w -500 -h -500
+  # fi
 done
