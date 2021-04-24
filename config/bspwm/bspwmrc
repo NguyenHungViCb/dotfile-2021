@@ -3,10 +3,12 @@
 bspc rule -r "*"
 
 startFlashFocus &
-feh --bg-scale $HOME/Pictures/forest-night.png &
+feh --bg-scale $HOME/Pictures/arch.png &
 start-picom &
 launch_polybar &
 sleep 0.5s &&
+killall ibus-daemon &&
+ibus-daemon -drx &&
 initKeyboard &
 wmname LG3D &
 cleanfullscreen &
@@ -34,6 +36,7 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 bspc rule -a VSCodium desktop='^3'
 bspc rule -a firefox desktop='^2'
+bspc rule -a qutebrowser desktop='^2'
 bspc rule -a Sxiv state=floating
 bspc rule -a jetbrains-rider  desktop='^4'
 bspc rule -a jetbrains-datagrip desktop='=^6'

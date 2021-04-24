@@ -171,7 +171,7 @@ super + shift + d
 
 # Mathematic dropdown terminal
 super + shift + m
-	tdrop -a -y 185 -x 495 -h 400 -w 400 -n 5 kitty -e R
+	tdrop -a -y 185 -x 495 -h 400 -w 400 -n 5 kitty -e python
 
 # Change ibus engine
 alt + shift + Return
