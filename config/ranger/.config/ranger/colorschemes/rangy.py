@@ -25,7 +25,7 @@ class Default(ColorScheme):
 				if context.image:
 					fg = yellow
 				else:
-					fg = green
+					fg = blue
 			if context.container:
 				attr |= bold
 				fg = magenta
@@ -36,7 +36,7 @@ class Default(ColorScheme):
 					any((context.media, context.container,
 						context.fifo, context.socket)):
 				attr |= bold
-				fg = green
+				fg = blue
 			if context.socket:
 				fg = magenta
 			if context.fifo or context.device:
@@ -75,7 +75,7 @@ class Default(ColorScheme):
 				fg = cyan
 			elif context.tab:
 				if context.good:
-					bg = green
+					bg = blue
 			elif context.link:
 				fg = cyan
 

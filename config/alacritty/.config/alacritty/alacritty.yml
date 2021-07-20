@@ -82,6 +82,34 @@ schemes:
     indexed_colors:
       - { index: 16, color: '#d18616' }
       - { index: 17, color: '#f14c4c' }
+  github_dimmed: &github_dimmed
+    primary:
+      background: '#22272e'
+      foreground: '#d1d5da'
+
+    normal:
+      black: '#22272e'
+      red: '#ff938a'
+      green: '#6bc46d'
+      yellow: '#c69026'
+      blue: '#6cb6ff'
+      magenta: '#b083f0'
+      cyan: '#56d4dd'
+      white: '#768390'
+
+    bright:
+      black: '#636e7b'
+      red: '#ff938a'
+      green: '#6bc46d'
+      yellow: '#daaa3f'
+      blue: '#6cb6ff'
+      magenta: '#dcbdfb'
+      cyan: '#56d4dd'
+      white: '#768390'
+
+    indexed_colors:
+      - { index: 16, color: '#d18616' }
+      - { index: 17, color: '#ff938a' }
   gruvbox_material_hard_dark: &gruvbox_material_hard_dark
     primary:
       background: '#1d2021'
@@ -216,4 +244,4 @@ schemes:
       white: '#e6d5ae'
 
 # Apply the color scheme.
-colors: *github_dark
+colors: *github_dimmed

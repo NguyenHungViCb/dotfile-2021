@@ -19,7 +19,7 @@ class base(ColorScheme):
                 fg = 7
                 bg = 1
             if context.border:
-                fg = green
+                fg = blue
             if context.image:
                 fg = 146
             if context.video:
@@ -33,7 +33,7 @@ class base(ColorScheme):
                 fg = 1
             if context.directory:
                 attr |= bold
-                fg = green
+                fg = blue
             elif context.executable and not \
                     any((context.media, context.container,
                        context.fifo, context.socket)):
