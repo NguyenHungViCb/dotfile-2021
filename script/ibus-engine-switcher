@@ -5,14 +5,11 @@ currentEngine=$(ibus engine)
 if [[ $currentEngine = *'Bamboo'* ]]
 then
 	ibus engine xkb:jp::jpn
-	remapShiftToEnter
+	initKeyboard
 	polybar-msg hook checkengine 1
 else
-	ibus engine Bamboo
+	ibus engine BambooUs
+	initKeyboard
 	polybar-msg hook checkengine 2
 fi
 
-# if [ $(ibus engine) = *'Bamboo'* ]
-# then
-# else
-# fi

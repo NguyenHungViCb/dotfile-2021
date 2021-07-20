@@ -1,0 +1,219 @@
+env:
+  # TERM variable
+  #
+  # This value is used to set the `$TERM` environment variable for
+  # each instance of Alacritty. If it is not present, alacritty will
+  # check the local terminfo database and use `alacritty` if it is
+  # available, otherwise `xterm-256color` is used.
+  TERM: alacritty
+
+window:
+  padding:
+    x: 30
+    y: 20
+
+  dynamic_padding: true
+
+  title: Alacritty
+
+  dynamic_title: true
+
+  # Window class (Linux/BSD only):
+  # class:
+  #   # Application instance name
+  #   instance: Alacritty
+  #   # General application class
+  #   general: Alacritty
+
+  gtk_theme_variant: None
+
+decorations: full
+
+background_opacity: 0.9
+
+# Font configuration (changes require restart)
+font:
+  # The size to use.
+  size: 9
+  # The normal (roman) font face to use.
+  normal:
+    family: Iosevka Nerd Font # Style can be specified to pick a specific face.
+    style: Regular
+
+  # The bold font face
+  bold:
+    family: Iosevka Nerd Font
+    # Style can be specified to pick a specific face.
+    style: Bold
+
+  # The italic font face
+  italic:
+    family: Iosevka Nerd Font
+    # Style can be specified to pick a specific face.
+    style: Italic
+
+# The definition of color schemes.
+schemes:
+  github_dark: &github_dark
+    primary:
+      background: '#24292e'
+      foreground: '#d1d5da'
+    normal:
+      black: '#24292e'
+      red: '#f14c4c'
+      green: '#23d18b'
+      yellow: '#e2e210'
+      blue: '#3b8eea'
+      magenta: '#bc3fbc'
+      cyan: '#29b7da'
+      white: '#d1d5da'
+
+    # Bright colors
+    bright:
+      black: '#666666'
+      red: '#f14c4c'
+      green: '#23d18b'
+      yellow: '#f5f543'
+      blue: '#3b8eea'
+      magenta: '#d670d6'
+      cyan: '#29b7da'
+      white: '#d1d5da'
+
+    indexed_colors:
+      - { index: 16, color: '#d18616' }
+      - { index: 17, color: '#f14c4c' }
+  gruvbox_material_hard_dark: &gruvbox_material_hard_dark
+    primary:
+      background: '#1d2021'
+      foreground: '#d4be98'
+    normal:
+      black: '#32302f'
+      red: '#ea6962'
+      green: '#a9b665'
+      yellow: '#d8a657'
+      blue: '#7daea3'
+      magenta: '#d3869b'
+      cyan: '#89b482'
+      white: '#d4be98'
+    bright:
+      black: '#32302f'
+      red: '#ea6962'
+      green: '#a9b665'
+      yellow: '#d8a657'
+      blue: '#7daea3'
+      magenta: '#d3869b'
+      cyan: '#89b482'
+      white: '#d4be98'
+  gruvbox_material_medium_dark: &gruvbox_material_medium_dark
+    primary:
+      background: '#282828'
+      foreground: '#d4be98'
+    normal:
+      black: '#3c3836'
+      red: '#ea6962'
+      green: '#a9b665'
+      yellow: '#d8a657'
+      blue: '#7daea3'
+      magenta: '#d3869b'
+      cyan: '#89b482'
+      white: '#d4be98'
+    bright:
+      black: '#3c3836'
+      red: '#ea6962'
+      green: '#a9b665'
+      yellow: '#d8a657'
+      blue: '#7daea3'
+      magenta: '#d3869b'
+      cyan: '#89b482'
+      white: '#d4be98'
+  gruvbox_material_soft_dark: &gruvbox_material_soft_dark
+    primary:
+      background: '#32302f'
+      foreground: '#d4be98'
+    normal:
+      black: '#45403d'
+      red: '#ea6962'
+      green: '#a9b665'
+      yellow: '#d8a657'
+      blue: '#7daea3'
+      magenta: '#d3869b'
+      cyan: '#89b482'
+      white: '#d4be98'
+    bright:
+      black: '#45403d'
+      red: '#ea6962'
+      green: '#a9b665'
+      yellow: '#d8a657'
+      blue: '#7daea3'
+      magenta: '#d3869b'
+      cyan: '#89b482'
+      white: '#d4be98'
+  gruvbox_material_hard_light: &gruvbox_material_hard_light
+    primary:
+      background: '#f9f5d7'
+      foreground: '#654735'
+    normal:
+      black: '#654735'
+      red: '#c14a4a'
+      green: '#6c782e'
+      yellow: '#b47109'
+      blue: '#45707a'
+      magenta: '#945e80'
+      cyan: '#4c7a5d'
+      white: '#f2e5bc'
+    bright:
+      black: '#654735'
+      red: '#c14a4a'
+      green: '#6c782e'
+      yellow: '#b47109'
+      blue: '#45707a'
+      magenta: '#945e80'
+      cyan: '#4c7a5d'
+      white: '#f2e5bc'
+  gruvbox_material_medium_light: &gruvbox_material_medium_light
+    primary:
+      background: '#fbf1c7'
+      foreground: '#654735'
+    normal:
+      black: '#654735'
+      red: '#c14a4a'
+      green: '#6c782e'
+      yellow: '#b47109'
+      blue: '#45707a'
+      magenta: '#945e80'
+      cyan: '#4c7a5d'
+      white: '#eee0b7'
+    bright:
+      black: '#654735'
+      red: '#c14a4a'
+      green: '#6c782e'
+      yellow: '#b47109'
+      blue: '#45707a'
+      magenta: '#945e80'
+      cyan: '#4c7a5d'
+      white: '#eee0b7'
+  gruvbox_material_soft_light: &gruvbox_material_soft_light
+    primary:
+      background: '#f2e5bc'
+      foreground: '#654735'
+    normal:
+      black: '#654735'
+      red: '#c14a4a'
+      green: '#6c782e'
+      yellow: '#b47109'
+      blue: '#45707a'
+      magenta: '#945e80'
+      cyan: '#4c7a5d'
+      white: '#e6d5ae'
+    bright:
+      black: '#654735'
+      red: '#c14a4a'
+      green: '#6c782e'
+      yellow: '#b47109'
+      blue: '#45707a'
+      magenta: '#945e80'
+      cyan: '#4c7a5d'
+      white: '#e6d5ae'
+
+# Apply the color scheme.
+colors: *github_dark
