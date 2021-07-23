@@ -86,7 +86,6 @@ schemes:
     primary:
       background: '#22272e'
       foreground: '#d1d5da'
-
     normal:
       black: '#22272e'
       red: '#ff938a'
@@ -96,7 +95,6 @@ schemes:
       magenta: '#b083f0'
       cyan: '#56d4dd'
       white: '#768390'
-
     bright:
       black: '#636e7b'
       red: '#ff938a'

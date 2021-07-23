@@ -50,3 +50,4 @@ bspc rule -a Zathura desktop='^7'
 bspc rule -a xdman-Main state=floating
 bspc rule -a mpv desktop='^8' state=floating
 bspc rule -a Wps desktop="5"
+bspc rule -a firefox:firefox:"File Upload" rectangle=1000x700+0+0
