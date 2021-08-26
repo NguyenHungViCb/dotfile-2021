@@ -69,8 +69,9 @@ PERL_LOCAL_LIB_ROOT="/home/nick/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_RO
 PERL_MB_OPT="--install_base \"/home/nick/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/nick/perl5"; export PERL_MM_OPT;
 export PATH=/home/$USER/.config/nvcode/utils/bin:$PATH
+setopt autocd
 
-export GTK_IM_MODULE=ibus
+export GTK_IM_MODULE=xim
 export QT_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 # Dành cho những phần mềm dựa trên qt4
@@ -78,3 +79,23 @@ export QT4_IM_MODULE=ibus
 # Dành cho những phần mềm dùng thư viện đồ họa clutter/OpenGL
 export CLUTTER_IM_MODULE=ibus
 export GLFW_IM_MODULE=ibus
+
+# if [[ -z $(pgrep sxhkd) ]]; then
+#   initKeyboard &
+# fi
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/nick/.miniconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/nick/.miniconda/etc/profile.d/conda.sh" ]; then
+        . "/home/nick/.miniconda/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/nick/.miniconda/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

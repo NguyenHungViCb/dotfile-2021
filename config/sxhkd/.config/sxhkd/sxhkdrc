@@ -43,8 +43,8 @@ super + g
 #
 
 # set the window state
-super + {t,shift + t,s,f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+super + {t,shift + t,s}
+	bspc node -t {tiled,pseudo_tiled,floating}
 
 # set the node flags
 super + ctrl + {m,x,y,z}
@@ -143,7 +143,7 @@ XF86MonBrightnessUp
 
 # Enter focus mode
 super + shift + f
-	fullscreen
+	focus
 
 # Focus next occupied desktop
 super + Zenkaku_Hankaku
@@ -179,3 +179,9 @@ alt + shift + Return
 
 alt + Return
   rofi -show window -show-icons
+
+super + f
+  fullscreen
+
+alt + @space
+  dmenuutils

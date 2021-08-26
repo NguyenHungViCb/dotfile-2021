@@ -1,10 +1,10 @@
-export EDITOR=/usr/bin/vim
+export EDITOR=/usr/bin/lvim
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 export PATH=~/.npm-global/bin:$PATH
-export TERMINAL="alacritty"
-export BROWSER="firefox"
+export TERMINAL="/usr/bin/alacritty"
+export BROWSER="/usr/bin/microsoft-edge-beta"
 # export LESS_TERMCAP_mb=$'\e[1;32m'
 # export LESS_TERMCAP_md=$'\e[1;32m'
 # export LESS_TERMCAP_me=$'\e[0m'
@@ -32,12 +32,24 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # set PATH so it includes cargo's bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-	PATH="$HOME/.local/bin:$PATH"
+if [ -d "$HOME/.cargo/bin" ] ; then
+	PATH="$HOME/.cargo/bin:$PATH"
 fi
 
 # set PATH so it includes gem packages
 if [ -d "$HOME/.gem/ruby/2.7.0/bin" ] ; then
 	PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
 fi
-. "$HOME/.cargo/env"
+
+if [ -d "$HOME/.local/share/gem/ruby/3.0.0/bin" ] ; then
+  PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
+fi
+
+# set PATH so it includes .dotnet
+if [ -d "$HOME/.dotnet" ] ; then
+  PATH="$HOME/.dotnet:$PATH"
+fi
+
+if [ -d "$HOME/.miniconda" ]; then
+  PATH="$HOME/.miniconda/bin:$PATH"
+fi

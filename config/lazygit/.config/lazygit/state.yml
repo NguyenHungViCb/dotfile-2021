@@ -1,9 +1,13 @@
 lastupdatecheck: 0
 recentrepos:
 - /home/nick/.local/share/lunarvim/lvim
+- /home/nick/Documents/bl2
+- /home/nick/Documents/storybook/bl2
+- /home/nick/Downloads/Git_Clone/github-nvim-theme
+- /home/nick/Documents/storybook/taskbox
+- /home/nick/Documents/redux/redux-social
+- /home/nick/Downloads/Git_Clone/react-hooks
+- /home/nick/Downloads/Git_Clone/149311-github-theme
+- /home/nick/Documents/golf-company/server
 - /home/nick/Downloads/Git_Clone/learning-lua-plugin.nvim
-- /home/nick/.config/nvim
-- /home/nick/Downloads/Git_Clone/dotfile-2021
-- /home/nick/Documents/react-hooks
-- /home/nick/Documents/typescript-academind
 startuppopupversion: 5

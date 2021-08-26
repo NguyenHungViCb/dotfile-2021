@@ -7,12 +7,12 @@ set adjust-open "best-fit"
 #set page per row
 set pages-per-row 1
 
-set notification-error-bg       "#323d43" # bg
-set notification-error-fg       "#e68183" # bright:red
-set notification-warning-bg     "#323d43" # bg
-set notification-warning-fg     "#d9bb80" # bright:yellow
-set notification-bg             "#323d43" # bg
-set notification-fg             "#87c095" # bright:green
+set notification-error-bg       "#22272e" # bg
+set notification-error-fg       "#ff938a" # bright:red
+set notification-warning-bg     "#22272e" # bg
+set notification-warning-fg     "#c69026" # bright:yellow
+set notification-bg             "#22272e" # bg
+set notification-fg             "#6cb6ff" # bright:green
 
 set completion-bg               "#504945" # bg2
 set completion-fg               "#d8caac" # fg
@@ -27,26 +27,26 @@ set index-fg                    "#d8caac" # fg
 set index-active-bg             "#83b6af" # bright:blue
 set index-active-fg             "#504945" # bg2
 
-set inputbar-bg                 "#505a60" # bg
-set inputbar-fg                 "#87c095" # fg
+set inputbar-bg                 "#22272e" # bg
+set inputbar-fg                 "#6cb6ff" # fg
 
-set statusbar-bg                "#87c095" # bg2
-set statusbar-fg                "#323d43" # fg
+set statusbar-bg                "#1e2228" # bg2
+set statusbar-fg                "#dcbdfb" # fg
 
 set highlight-color             "#fabd2f" # bright:yellow
 set highlight-active-color      "#fe8019" # bright:orange
 
-set default-bg                  "#323d43" # bg
-set default-fg                  "#d8caac" # fg
+set default-bg                  "#22272e" # bg
+set default-fg                  "#d1d5da" # fg
 set render-loading              true
-set render-loading-bg           "#323d43" # bg
-set render-loading-fg           "#d8caac" # fg
+set render-loading-bg           "#22272e" # bg
+set render-loading-fg           "#d1d5da" # fg
 
 # Recolor book content's color
-set recolor-lightcolor          "#323d43" # bg
-set recolor-darkcolor           "#d8caac" # fg
+set recolor-lightcolor          "#22272e" # bg
+set recolor-darkcolor           "#d1d5da" # fg
 set recolor                     "true"
-set recolor-keephue             "false"      # keep original color
+set recolor-keephue             "true"      # keep original color
 
 set statusbar-h-padding 0
 set statusbar-v-padding 0

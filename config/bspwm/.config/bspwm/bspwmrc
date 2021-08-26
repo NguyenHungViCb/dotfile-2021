@@ -3,17 +3,13 @@
 bspc rule -r "*"
 
 startFlashFocus &
-feh --bg-fill $HOME/Pictures/undersea_of_nord.png &
+wallpaper &
 start-picom &
-sleep 0.5s &&
-#killall ibus-daemon &&
-#ibus-daemon -drx &&
-#initKeyboard &
 wmname LG3D &
-cleanfullscreen &
-alacritty &
-sleep 0.5s &&
+bspswallow &
 launch_polybar &
+alacritty &
+desknamer &
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9 10
 
@@ -51,3 +47,8 @@ bspc rule -a xdman-Main state=floating
 bspc rule -a mpv desktop='^8' state=floating
 bspc rule -a Wps desktop="5"
 bspc rule -a firefox:firefox:"File Upload" rectangle=1000x700+0+0
+bspc rule -a Electron9:electron9:"Open" rectangle=1000x700+0+0
+bspc rule -a jetbrains-idea:jetbrains-idea:"New Project" rectangle=1000x700+0+0
+bspc rule -a Zathura rectangle=800x750+0+0
+bspc rule -a Zathura center=on
+bspc rule -a Microsoft-edge-beta:microsoft-edge-beta desktop='^2'

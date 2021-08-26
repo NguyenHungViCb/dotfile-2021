@@ -163,7 +163,7 @@ font-4 = "UbuntuMono Nerd Font:size=9;2"
 
 modules-left = bspwm
 modules-center =
-modules-right = style_i separator cpu_i cpu separator memory_i memory separator pulseaudio_i pulseaudio separator battery_i battery separator network_i network separator checkengine separator date_i date
+modules-right = sxhkd separator cpu_i cpu separator memory_i memory separator pulseaudio_i pulseaudio separator battery_i battery separator network_i network separator checkengine separator date_i date
 
 ; The separator will be inserted between the output of each module
 separator =
@@ -234,7 +234,7 @@ tray-scale = 1.0
 ; Currently supported WM's:
 ;   bspwm
 ;   i3 (requires: `override-redirect = true`)
-;wm-restack = bspwm
+wm-restack = bspwm
 
 ; Set a DPI values used when rendering text
 ; This only affects scalable fonts

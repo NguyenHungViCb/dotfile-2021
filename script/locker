@@ -1,2 +1,0 @@
-#!/bin/bash
-i3lock-fancy -f Iosevka -t "I'm being locked! Help Me\!" -- scrot -z

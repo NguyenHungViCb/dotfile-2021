@@ -29,7 +29,7 @@ window:
 
 decorations: full
 
-background_opacity: 0.9
+background_opacity: 0.95
 
 # Font configuration (changes require restart)
 font:
@@ -56,190 +56,190 @@ font:
 schemes:
   github_dark: &github_dark
     primary:
-      background: '#24292e'
-      foreground: '#d1d5da'
+      background: "#24292e"
+      foreground: "#d1d5da"
     normal:
-      black: '#24292e'
-      red: '#f14c4c'
-      green: '#23d18b'
-      yellow: '#e2e210'
-      blue: '#3b8eea'
-      magenta: '#bc3fbc'
-      cyan: '#29b7da'
-      white: '#d1d5da'
+      black: "#24292e"
+      red: "#f14c4c"
+      green: "#23d18b"
+      yellow: "#e2e210"
+      blue: "#3b8eea"
+      magenta: "#bc3fbc"
+      cyan: "#29b7da"
+      white: "#d1d5da"
 
     # Bright colors
     bright:
-      black: '#666666'
-      red: '#f14c4c'
-      green: '#23d18b'
-      yellow: '#f5f543'
-      blue: '#3b8eea'
-      magenta: '#d670d6'
-      cyan: '#29b7da'
-      white: '#d1d5da'
+      black: "#666666"
+      red: "#f14c4c"
+      green: "#23d18b"
+      yellow: "#f5f543"
+      blue: "#3b8eea"
+      magenta: "#d670d6"
+      cyan: "#29b7da"
+      white: "#d1d5da"
 
     indexed_colors:
-      - { index: 16, color: '#d18616' }
-      - { index: 17, color: '#f14c4c' }
+      - { index: 16, color: "#d18616" }
+      - { index: 17, color: "#f14c4c" }
   github_dimmed: &github_dimmed
     primary:
-      background: '#22272e'
-      foreground: '#d1d5da'
+      background: "#22272e"
+      foreground: "#d1d5da"
     normal:
-      black: '#22272e'
-      red: '#ff938a'
-      green: '#6bc46d'
-      yellow: '#c69026'
-      blue: '#6cb6ff'
-      magenta: '#b083f0'
-      cyan: '#56d4dd'
-      white: '#768390'
+      black: "#22272e"
+      red: "#ff938a"
+      green: "#6bc46d"
+      yellow: "#c69026"
+      blue: "#6cb6ff"
+      magenta: "#b083f0"
+      cyan: "#56d4dd"
+      white: "#768390"
     bright:
-      black: '#636e7b'
-      red: '#ff938a'
-      green: '#6bc46d'
-      yellow: '#daaa3f'
-      blue: '#6cb6ff'
-      magenta: '#dcbdfb'
-      cyan: '#56d4dd'
-      white: '#768390'
+      black: "#636e7b"
+      red: "#ff938a"
+      green: "#6bc46d"
+      yellow: "#daaa3f"
+      blue: "#6cb6ff"
+      magenta: "#dcbdfb"
+      cyan: "#56d4dd"
+      white: "#768390"
 
     indexed_colors:
-      - { index: 16, color: '#d18616' }
-      - { index: 17, color: '#ff938a' }
+      - { index: 16, color: "#d18616" }
+      - { index: 17, color: "#ff938a" }
   gruvbox_material_hard_dark: &gruvbox_material_hard_dark
     primary:
-      background: '#1d2021'
-      foreground: '#d4be98'
+      background: "#1d2021"
+      foreground: "#d4be98"
     normal:
-      black: '#32302f'
-      red: '#ea6962'
-      green: '#a9b665'
-      yellow: '#d8a657'
-      blue: '#7daea3'
-      magenta: '#d3869b'
-      cyan: '#89b482'
-      white: '#d4be98'
+      black: "#32302f"
+      red: "#ea6962"
+      green: "#a9b665"
+      yellow: "#d8a657"
+      blue: "#7daea3"
+      magenta: "#d3869b"
+      cyan: "#89b482"
+      white: "#d4be98"
     bright:
-      black: '#32302f'
-      red: '#ea6962'
-      green: '#a9b665'
-      yellow: '#d8a657'
-      blue: '#7daea3'
-      magenta: '#d3869b'
-      cyan: '#89b482'
-      white: '#d4be98'
+      black: "#32302f"
+      red: "#ea6962"
+      green: "#a9b665"
+      yellow: "#d8a657"
+      blue: "#7daea3"
+      magenta: "#d3869b"
+      cyan: "#89b482"
+      white: "#d4be98"
   gruvbox_material_medium_dark: &gruvbox_material_medium_dark
     primary:
-      background: '#282828'
-      foreground: '#d4be98'
+      background: "#282828"
+      foreground: "#d4be98"
     normal:
-      black: '#3c3836'
-      red: '#ea6962'
-      green: '#a9b665'
-      yellow: '#d8a657'
-      blue: '#7daea3'
-      magenta: '#d3869b'
-      cyan: '#89b482'
-      white: '#d4be98'
+      black: "#3c3836"
+      red: "#ea6962"
+      green: "#a9b665"
+      yellow: "#d8a657"
+      blue: "#7daea3"
+      magenta: "#d3869b"
+      cyan: "#89b482"
+      white: "#d4be98"
     bright:
-      black: '#3c3836'
-      red: '#ea6962'
-      green: '#a9b665'
-      yellow: '#d8a657'
-      blue: '#7daea3'
-      magenta: '#d3869b'
-      cyan: '#89b482'
-      white: '#d4be98'
+      black: "#3c3836"
+      red: "#ea6962"
+      green: "#a9b665"
+      yellow: "#d8a657"
+      blue: "#7daea3"
+      magenta: "#d3869b"
+      cyan: "#89b482"
+      white: "#d4be98"
   gruvbox_material_soft_dark: &gruvbox_material_soft_dark
     primary:
-      background: '#32302f'
-      foreground: '#d4be98'
+      background: "#32302f"
+      foreground: "#d4be98"
     normal:
-      black: '#45403d'
-      red: '#ea6962'
-      green: '#a9b665'
-      yellow: '#d8a657'
-      blue: '#7daea3'
-      magenta: '#d3869b'
-      cyan: '#89b482'
-      white: '#d4be98'
+      black: "#45403d"
+      red: "#ea6962"
+      green: "#a9b665"
+      yellow: "#d8a657"
+      blue: "#7daea3"
+      magenta: "#d3869b"
+      cyan: "#89b482"
+      white: "#d4be98"
     bright:
-      black: '#45403d'
-      red: '#ea6962'
-      green: '#a9b665'
-      yellow: '#d8a657'
-      blue: '#7daea3'
-      magenta: '#d3869b'
-      cyan: '#89b482'
-      white: '#d4be98'
+      black: "#45403d"
+      red: "#ea6962"
+      green: "#a9b665"
+      yellow: "#d8a657"
+      blue: "#7daea3"
+      magenta: "#d3869b"
+      cyan: "#89b482"
+      white: "#d4be98"
   gruvbox_material_hard_light: &gruvbox_material_hard_light
     primary:
-      background: '#f9f5d7'
-      foreground: '#654735'
+      background: "#f9f5d7"
+      foreground: "#654735"
     normal:
-      black: '#654735'
-      red: '#c14a4a'
-      green: '#6c782e'
-      yellow: '#b47109'
-      blue: '#45707a'
-      magenta: '#945e80'
-      cyan: '#4c7a5d'
-      white: '#f2e5bc'
+      black: "#654735"
+      red: "#c14a4a"
+      green: "#6c782e"
+      yellow: "#b47109"
+      blue: "#45707a"
+      magenta: "#945e80"
+      cyan: "#4c7a5d"
+      white: "#f2e5bc"
     bright:
-      black: '#654735'
-      red: '#c14a4a'
-      green: '#6c782e'
-      yellow: '#b47109'
-      blue: '#45707a'
-      magenta: '#945e80'
-      cyan: '#4c7a5d'
-      white: '#f2e5bc'
+      black: "#654735"
+      red: "#c14a4a"
+      green: "#6c782e"
+      yellow: "#b47109"
+      blue: "#45707a"
+      magenta: "#945e80"
+      cyan: "#4c7a5d"
+      white: "#f2e5bc"
   gruvbox_material_medium_light: &gruvbox_material_medium_light
     primary:
-      background: '#fbf1c7'
-      foreground: '#654735'
+      background: "#fbf1c7"
+      foreground: "#654735"
     normal:
-      black: '#654735'
-      red: '#c14a4a'
-      green: '#6c782e'
-      yellow: '#b47109'
-      blue: '#45707a'
-      magenta: '#945e80'
-      cyan: '#4c7a5d'
-      white: '#eee0b7'
+      black: "#654735"
+      red: "#c14a4a"
+      green: "#6c782e"
+      yellow: "#b47109"
+      blue: "#45707a"
+      magenta: "#945e80"
+      cyan: "#4c7a5d"
+      white: "#eee0b7"
     bright:
-      black: '#654735'
-      red: '#c14a4a'
-      green: '#6c782e'
-      yellow: '#b47109'
-      blue: '#45707a'
-      magenta: '#945e80'
-      cyan: '#4c7a5d'
-      white: '#eee0b7'
+      black: "#654735"
+      red: "#c14a4a"
+      green: "#6c782e"
+      yellow: "#b47109"
+      blue: "#45707a"
+      magenta: "#945e80"
+      cyan: "#4c7a5d"
+      white: "#eee0b7"
   gruvbox_material_soft_light: &gruvbox_material_soft_light
     primary:
-      background: '#f2e5bc'
-      foreground: '#654735'
+      background: "#f2e5bc"
+      foreground: "#654735"
     normal:
-      black: '#654735'
-      red: '#c14a4a'
-      green: '#6c782e'
-      yellow: '#b47109'
-      blue: '#45707a'
-      magenta: '#945e80'
-      cyan: '#4c7a5d'
-      white: '#e6d5ae'
+      black: "#654735"
+      red: "#c14a4a"
+      green: "#6c782e"
+      yellow: "#b47109"
+      blue: "#45707a"
+      magenta: "#945e80"
+      cyan: "#4c7a5d"
+      white: "#e6d5ae"
     bright:
-      black: '#654735'
-      red: '#c14a4a'
-      green: '#6c782e'
-      yellow: '#b47109'
-      blue: '#45707a'
-      magenta: '#945e80'
-      cyan: '#4c7a5d'
-      white: '#e6d5ae'
+      black: "#654735"
+      red: "#c14a4a"
+      green: "#6c782e"
+      yellow: "#b47109"
+      blue: "#45707a"
+      magenta: "#945e80"
+      cyan: "#4c7a5d"
+      white: "#e6d5ae"
 
 # Apply the color scheme.
 colors: *github_dimmed
