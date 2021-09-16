@@ -240,6 +240,19 @@ schemes:
       magenta: "#945e80"
       cyan: "#4c7a5d"
       white: "#e6d5ae"
+    window_11: &window_11
+      primary:
+        background: "#DBE5EE"
+        foreground: "#161718"
+      normal:
+        black: "#161718"
+        red: "#D41F33"
+        green: "#21916C"
+        yellow: "#D2B256"
+        blue: "#0C5F97"
+        magenta: "#703CB7"
+        cyan: "#008C99"
+        white: "#FBFBFB"
 
 # Apply the color scheme.
 colors: *github_dimmed

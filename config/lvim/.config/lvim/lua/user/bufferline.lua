@@ -9,8 +9,9 @@ M.config = function()
   ]])
 	require("bufferline").setup({
 		options = {
-			numbers = "ordinal",
-			number_style = "subscript",
+      numbers = function (opts)
+        return string.format('%s.%s.',opts.ordinal,opts.id)
+      end,
 			close_command = "bdelete!",
 			-- diagnostics = "nvim_lsp",
 			custom_filter = function(buf_number)

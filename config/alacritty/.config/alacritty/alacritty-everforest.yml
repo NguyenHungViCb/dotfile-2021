@@ -1,0 +1,86 @@
+env:
+  # TERM variable
+  #
+  # This value is used to set the `$TERM` environment variable for
+  # each instance of Alacritty. If it is not present, alacritty will
+  # check the local terminfo database and use `alacritty` if it is
+  # available, otherwise `xterm-256color` is used.
+  TERM: alacritty
+
+window:
+  padding:
+    x: 30
+    y: 20
+
+  dynamic_padding: true
+
+  title: Alacritty
+
+  dynamic_title: false
+
+  # Window class (Linux/BSD only):
+  # class:
+  #   # Application instance name
+  #   instance: Alacritty
+  #   # General application class
+  #   general: Alacritty
+
+  gtk_theme_variant: None
+
+decorations: full
+
+background_opacity: 0.95
+# background_opacity: 1
+
+# Font configuration (changes require restart)
+font:
+  # The size to use.
+  size: 9.2
+  # The normal (roman) font face to use.
+  normal:
+    family: Iosevka Nerd Font
+    # Style can be specified to pick a specific face.
+    style: Regular
+
+  # The bold font face
+  bold:
+    family: Iosevka Nerd Font
+    # Style can be specified to pick a specific face.
+    style: Regular
+
+  # The italic font face
+  italic:
+    family: Iosevka Nerd Font
+    # Style can be specified to pick a specific face.
+    style: Regular
+
+# Colors (Forest night)
+schemes:
+  forest_night: &forest_night
+    primary:
+      background: "#323d43"
+      foreground: "#d8caac"
+
+    normal:
+      black: "#323d43"
+      red: "#e68183"
+      green: "#a7c080"
+      yellow: "#d9bb80"
+      blue: "#83b6af"
+      magenta: "#d39bb6"
+      cyan: "#87c095"
+      white: "#d8caac"
+
+    bright:
+      black: "#505a60"
+      red: "#e68183"
+      green: "#a7c080"
+      yellow: "#d9bb80"
+      blue: "#83b6af"
+      magenta: "#d39bb6"
+      cyan: "#87c095"
+      white: "#d8caac"
+    cursor:
+      text: "#505a60"
+      cursor: "#a7c080"
+colors: *forest_night

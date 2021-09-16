@@ -15,6 +15,8 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- dashboard
 lvim.builtin.dashboard.active = true
 lvim.builtin.gitsigns.active = false
+lvim.builtin.comment.active = false
+lvim.builtin.nvimtree.ignore = {}
 
 -- terminal
 lvim.builtin.terminal.active = true
@@ -31,7 +33,7 @@ vim.g.nvim_tree_special_files = {}
 lvim.builtin.bufferline.active = false
 
 -- teltescope
-lvim.builtin.telescope.defaults.file_ignore_patterns = { "node_modules", "package.json", "yarn.lock", ".git" }
+lvim.builtin.telescope.defaults.file_ignore_patterns = { "package.json", "yarn.lock", ".git" }
 lvim.builtin.telescope.on_config_done = function()
 	local actions = require("telescope.actions")
 	lvim.builtin.telescope.defaults.mappings.i["<C-j>"] = actions.move_selection_next
@@ -50,6 +52,13 @@ lvim.builtin.treesitter.context_commentstring = {
 	enable_autocmd = false,
 	config = {
 		javascript = {
+			__default = "// %s",
+			jsx_element = "{/* %s */}",
+			jsx_fragment = "{/* %s */}",
+			jsx_attribute = "// %s",
+			comment = "// %s",
+		},
+		typescriptreact = {
 			__default = "// %s",
 			jsx_element = "{/* %s */}",
 			jsx_fragment = "{/* %s */}",
@@ -84,11 +93,12 @@ lvim.builtin.which_key.mappings["x"] = {
 -- plugins
 lvim.plugins = {
 	{
-		"projekt0n/github-nvim-theme",
+		"149311CB/github-nvim-theme",
 		config = function()
 			require("github-theme").setup({
-				themeStyle = "dimmed",
+				themeStyle = os.getenv("THEME"),
 				functionStyle = "bold",
+				-- ... your github-theme config
 			})
 		end,
 	},
@@ -98,7 +108,7 @@ lvim.plugins = {
 		"windwp/nvim-ts-autotag",
 		event = "InsertEnter",
 		after = "nvim-treesitter",
-		ft = { "html", "javascript", "markdown" },
+		ft = { "html", "javascript", "markdown", "javascriptreact", "typescript", "typescriptreact" },
 		-- event = "InsertEnter",
 	},
 	{
@@ -110,16 +120,24 @@ lvim.plugins = {
 
 	-- Other plugins
 	{
-		"blackCauldron7/surround.nvim",
+		"tpope/vim-surround",
 		event = "BufRead",
-		config = function()
-			require("surround").setup({})
-		end,
 	},
 	{
 		"norcalli/nvim-colorizer.lua",
 		-- event = "BufRead",
-		ft = { "yaml", "css", "html", "lua" },
+		ft = {
+			"yaml",
+			"css",
+			"html",
+			"lua",
+			"javascript",
+			"javascriptreact",
+			"typescript",
+			"typescriptreact",
+			"json",
+			"dosini",
+		},
 		config = function()
 			require("user.colorizer").config()
 		end,
@@ -156,31 +174,13 @@ lvim.plugins = {
 			require("user.spectre")
 		end,
 	},
-	-- {
-	-- 	"TC72/telescope-tele-tabby.nvim",
-	-- 	config = function()
-	-- 		require("telescope").setup({
-	-- 			extensions = {
-	-- 				tele_tabby = {
-	-- 					use_highlighter = true,
-	-- 					previewer = true,
-	-- 				},
-	-- 			},
-	-- 		})
-	-- 	end,
-	-- },
 	{
 		"akinsho/nvim-bufferline.lua",
 		config = function()
 			require("user.bufferline").config()
 		end,
 	},
-	-- {
-	-- 	"folke/trouble.nvim",
-	-- 	config = function()
-	-- 		require("trouble").setup({})
-	-- 	end,
-	-- },
+
 	{
 		"metakirby5/codi.vim",
 		cmd = "Codi",
@@ -190,9 +190,7 @@ lvim.plugins = {
 	-- JavaScript plugins
 	{
 		"dsznajder/vscode-es7-javascript-react-snippets",
-		-- event = "InsertEnter",
-		ft = { "javascript", "javascriptreact", "typescript" },
-		-- after = { "nvim-compe" },
+		ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
 	},
 	{
 		"ludovicchabant/vim-gutentags",
@@ -211,6 +209,16 @@ lvim.plugins = {
 	{ "dhruvasagar/vim-table-mode", ft = { "markdown" } },
 	{ "iamcco/markdown-preview.nvim", run = { "cd app && yarn install" }, ft = { "markdown" } },
 	{ "dkarter/bullets.vim", ft = { "markdown" } },
+	-- {
+	-- "tpope/vim-markdown",
+	-- config = function()
+	-- 	vim.cmd([[
+	--       let g:markdown_fenced_languages = ['html', 'python', 'bash=sh','sql']
+	--       let g:markdown_syntax_conceal = 0
+	--     ]])
+	-- end,
+	-- filetypes = { "md", "markdown" },
+	-- },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)

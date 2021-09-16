@@ -5,6 +5,7 @@ export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 export PATH=~/.npm-global/bin:$PATH
 export TERMINAL="/usr/bin/alacritty"
 export BROWSER="/usr/bin/microsoft-edge-beta"
+export THEME="dark"
 # export LESS_TERMCAP_mb=$'\e[1;32m'
 # export LESS_TERMCAP_md=$'\e[1;32m'
 # export LESS_TERMCAP_me=$'\e[0m'

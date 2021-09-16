@@ -1,7 +1,7 @@
 lvim.lang.typescript.formatters = {
 	{
 		exe = "prettier",
-		args = { "--stdin-filepath", "--write" },
+		args = {},
 	},
 }
 
@@ -12,11 +12,11 @@ lvim.lang.typescript.linters = {
 	},
 }
 
-lvim.lang.typescript.lsp.setup.root_dir = function()
-	vim.cmd("let root_dir = FindRootDirectory()")
-	local proj_dir = vim.api.nvim_get_var("root_dir")
-	if proj_dir ~= nil and proj_dir ~= "" then
-		return proj_dir
-	end
-	return vim.fn.getcwd()
-end
+-- lvim.lang.typescript.lsp.setup.root_dir = function()
+-- 	vim.cmd("let root_dir = FindRootDirectory()")
+-- 	local proj_dir = vim.api.nvim_get_var("root_dir")
+-- 	if proj_dir ~= nil and proj_dir ~= "" then
+-- 		return proj_dir
+-- 	end
+-- 	return vim.fn.getcwd()
+-- end

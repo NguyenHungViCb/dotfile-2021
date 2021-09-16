@@ -1,0 +1,72 @@
+env:
+  # TERM variable
+  #
+  # This value is used to set the `$TERM` environment variable for
+  # each instance of Alacritty. If it is not present, alacritty will
+  # check the local terminfo database and use `alacritty` if it is
+  # available, otherwise `xterm-256color` is used.
+  TERM: alacritty
+
+window:
+  padding:
+    x: 30
+    y: 20
+
+  dynamic_padding: true
+
+  title: Alacritty
+
+  dynamic_title: true
+
+  # Window class (Linux/BSD only):
+  # class:
+  #   # Application instance name
+  #   instance: Alacritty
+  #   # General application class
+  #   general: Alacritty
+
+  gtk_theme_variant: None
+
+decorations: full
+
+background_opacity: 0.95
+
+# Font configuration (changes require restart)
+font:
+  # The size to use.
+  size: 9
+  # The normal (roman) font face to use.
+  normal:
+    family: Iosevka Nerd Font # Style can be specified to pick a specific face.
+    style: Regular
+
+  # The bold font face
+  bold:
+    family: Iosevka Nerd Font
+    # Style can be specified to pick a specific face.
+    style: Bold
+
+  # The italic font face
+  italic:
+    family: Iosevka Nerd Font
+    # Style can be specified to pick a specific face.
+    style: Italic
+
+# The definition of color schemes.
+schemes:
+    window_11: &window_11
+      primary:
+        background: "#DBE5EE"
+        foreground: "#161718"
+      normal:
+        black: "#161718"
+        red: "#D41F33"
+        green: "#21916C"
+        yellow: "#D2B256"
+        blue: "#0C5F97"
+        magenta: "#703CB7"
+        cyan: "#008C99"
+        white: "#FBFBFB"
+
+# Apply the color scheme.
+colors: *window_11

@@ -1,0 +1,48 @@
+#!/bin/sh
+
+alacritty=$HOME/.config/alacritty
+polybar=$HOME/.config/polybar
+lvim=$HOME/.config/lvim
+zsh=$HOME/.zshrc
+wallpaper=$HOME/Downloads/Git_Clone/dotfile-2021/Wal/nord/Pictures
+
+env=$HOME/.profile
+light="window_11"
+dark="github_dimmed"
+
+source $env
+
+setAlacritty(){
+  sed -i "s/\*$1/\*$2/" "$alacritty/alacritty.yml"
+}
+
+setPolyBar(){
+  mv "$polybar/colors.ini" "$polybar/colors-$1.ini"
+  mv "$polybar/colors-$2.ini" "$polybar/colors.ini"
+  launch_polybar
+}
+
+setEnv(){
+  sed -i "s/$1/$2/" "$env"
+}
+
+setWallpaper(){
+  killall wallpaper
+  mv "$wallpaper/nord" "$wallpaper/nord-$1"
+  mv "$wallpaper/nord-$2" "$wallpaper/nord"
+  wallpaper
+}
+
+if [[ $THEME == "light" ]]; then
+  setAlacritty "$light" "$dark" &
+  setPolyBar "light" "dark" &
+  setWallpaper "light" "dark" &
+  sleep 1s &&
+  setEnv "light" "dark" &
+else
+  setAlacritty "$dark" "$light" &
+  setPolyBar "dark" "light" &
+  setWallpaper "dark" "light" &
+  sleep 1s &&
+  setEnv "dark" "light" &
+fi

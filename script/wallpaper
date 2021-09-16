@@ -1,0 +1,11 @@
+#!/bin/sh
+
+dir=/home/nick/Pictures/nord
+
+setWal(){
+	sleep 500s
+	feh --bg-fill --randomize $dir/*
+	setWal
+}
+feh --bg-fill --randomize $dir/*
+setWal

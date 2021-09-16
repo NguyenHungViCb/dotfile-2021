@@ -32,7 +32,8 @@
     "Emulator System":["",31],
     "VirtualMachine":["樂",32],
 		"Graphics": ["", 33],
-		"Audio": ["", 34],
+		"TerminalEmulator": ["", 34],
+		"Audio": ["", 35],
 		"Music": ["", 36],
 		"Chat": ["", 38],
 		"InstantMessaging": ["", 40],
@@ -61,7 +62,6 @@
     "Obsidian":["磌",91],
     "Password":["",92],
 		"TextEditor": ["", 96],
-		"TerminalEmulator": ["", 99],
     "Javascript":["",82],
     "VSCode":["﬏",81]
 	},

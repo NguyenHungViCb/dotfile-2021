@@ -185,3 +185,6 @@ super + f
 
 alt + @space
   dmenuutils
+
+super + alt + Return
+  switch-color-scheme

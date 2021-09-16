@@ -47,8 +47,11 @@ bspc rule -a xdman-Main state=floating
 bspc rule -a mpv desktop='^8' state=floating
 bspc rule -a Wps desktop="5"
 bspc rule -a firefox:firefox:"File Upload" rectangle=1000x700+0+0
+bspc rule -a Code:code:"Open Folder" rectangle=1000x700+0+0
 bspc rule -a Electron9:electron9:"Open" rectangle=1000x700+0+0
 bspc rule -a jetbrains-idea:jetbrains-idea:"New Project" rectangle=1000x700+0+0
 bspc rule -a Zathura rectangle=800x750+0+0
 bspc rule -a Zathura center=on
 bspc rule -a Microsoft-edge-beta:microsoft-edge-beta desktop='^2'
+bspc rule -a Microsoft-edge-beta:microsoft-edge-beta rectangle=1000x700+0+0
+bspc rule -a Figma-linux:figma-linux rectangle=1000x700+0+0
