@@ -4,18 +4,15 @@
 
 source $HOME/.profile
 # Path to your oh-my-zsh installation.
-export ZSH="/home/nick/.oh-my-zsh"
+#export ZSH="/home/nick/.oh-my-zsh"
 
 export PATH=$HOME/.local/bin:$PATH
+source /usr/local/share/zsh/site-functions/prompt_spaceship_setup
 
 ZSH_THEME="spaceship"
 SPACESHIP_DIR_TRUNC_REPO=false
 SPACESHIP_PACKAGE_SYMBOL=' '
-# if [[ $THEME == "dark" ]]; then
-#   SPACESHIP_VI_MODE_COLOR='white'
-# else
-  SPACESHIP_VI_MODE_COLOR='dark'
-# fi
+SPACESHIP_VI_MODE_COLOR='dark'
 
 plugins=(
 	z
@@ -26,18 +23,6 @@ plugins=(
 )
 
 ZSH_DISABLE_COMPFIX=true
-# source /usr/share/zsh/manjaro-zsh-config
-source $ZSH/oh-my-zsh.sh
-# source /usr/share/fzf/key-bindings.zsh
-# source /usr/share/fzf/completion.zsh
-# User configuration
-
-# ZSH_HIGHLIGHT_STYLES[precommand]='fg=green'
-# ZSH_HIGHLIGHT_STYLES[builtin]='fg=green'
-# ZSH_HIGHLIGHT_STYLES[alias]='fg=green'
-# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#747475"
-# # ZSH_HIGHLIGHT_STYLES[default]='fg=cyan'
-bindkey '^ ' autosuggest-accept
 ufetch
 alias ls='exa -l --icons --group-directories-first'
 alias la='exa -la --icons --group-directories-first'
@@ -59,12 +44,6 @@ zle-line-init() {
 zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[6 q' ;} # Use beam shape cursor for each new prompt.
-
-# SpaceShip configuration
-# alias clear='clear && python3 ~/.local/bin/lichthi.py'
-# python3 ~/.local/bin/lichthi.py
-
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # bindkey -v
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -101,3 +80,7 @@ export QT4_IM_MODULE=ibus
 export CLUTTER_IM_MODULE=ibus
 export GLFW_IM_MODULE=ibus
 
+source /home/nick/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /home/nick/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+bindkey '^ ' autosuggest-accept
