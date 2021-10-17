@@ -6,6 +6,10 @@ export PATH=~/.npm-global/bin:$PATH
 export TERMINAL="/usr/bin/alacritty"
 export BROWSER="/usr/bin/microsoft-edge-beta"
 export THEME="dark"
+export HISTFILE=~/.zsh_history
+export HISTSIZE=10000
+export SAVEHIST=10000
+setopt appendhistory
 # export LESS_TERMCAP_mb=$'\e[1;32m'
 # export LESS_TERMCAP_md=$'\e[1;32m'
 # export LESS_TERMCAP_me=$'\e[0m'

@@ -8,6 +8,11 @@ source $HOME/.profile
 
 export PATH=$HOME/.local/bin:$PATH
 source /usr/local/share/zsh/site-functions/prompt_spaceship_setup
+source /home/nick/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /home/nick/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /home/nick/.zsh/zsh-z/zsh-z.plugin.zsh
+
+bindkey '^ ' autosuggest-accept
 
 ZSH_THEME="spaceship"
 SPACESHIP_DIR_TRUNC_REPO=false
@@ -23,7 +28,7 @@ plugins=(
 )
 
 ZSH_DISABLE_COMPFIX=true
-ufetch
+#ufetch
 alias ls='exa -l --icons --group-directories-first'
 alias la='exa -la --icons --group-directories-first'
 alias shutdown='systemctl poweroff -i'
@@ -80,7 +85,3 @@ export QT4_IM_MODULE=ibus
 export CLUTTER_IM_MODULE=ibus
 export GLFW_IM_MODULE=ibus
 
-source /home/nick/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /home/nick/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-bindkey '^ ' autosuggest-accept
