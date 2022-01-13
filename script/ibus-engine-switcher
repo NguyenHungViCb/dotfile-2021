@@ -4,12 +4,14 @@ currentEngine=$(ibus engine)
 
 if [[ $currentEngine = *'Bamboo'* ]]
 then
-	ibus engine xkb:jp:kana86:jpn
+	ibus engine xkb:us::eng
 	initKeyboard
 	polybar-msg hook checkengine 1
+  initKeyboard
 else
 	ibus engine Bamboo
 	initKeyboard
 	polybar-msg hook checkengine 2
+  initKeyboard
 fi
 

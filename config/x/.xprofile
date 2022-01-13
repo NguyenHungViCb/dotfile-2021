@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export GTK_IM_MODULE=ibus
+export GTK_IM_MODULE=xim
 export QT_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 # Dành cho những phần mềm dựa trên qt4
