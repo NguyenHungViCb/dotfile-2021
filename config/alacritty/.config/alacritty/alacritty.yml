@@ -29,7 +29,7 @@ window:
 
 decorations: full
 
-background_opacity: 0.95
+window.opacity: 0.95
 draw_bold_text_with_bright_colors: true
 
 # Font configuration (changes require restart)

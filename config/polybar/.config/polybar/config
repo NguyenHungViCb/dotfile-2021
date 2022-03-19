@@ -161,7 +161,7 @@ font-2 = "xos4 Terminus:size=12;2"
 
 modules-left = bspwm
 modules-center =
-modules-right = sxhkd separator cpu_i cpu separator memory_i memory separator pulseaudio_i pulseaudio separator battery_i battery separator network_i network separator checkengine separator date_i date
+modules-right = bluetooth_manager separator sxhkd separator cpu_i cpu separator memory_i memory separator pulseaudio_i pulseaudio separator battery_i battery separator network_i network separator checkengine separator date_i date
 
 ; The separator will be inserted between the output of each module
 separator =
