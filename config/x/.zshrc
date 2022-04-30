@@ -7,7 +7,7 @@ source $HOME/.profile
 #export ZSH="/home/nick/.oh-my-zsh"
 
 export PATH=$HOME/.local/bin:$PATH
-source /usr/local/share/zsh/site-functions/prompt_spaceship_setup
+source /home/nick/.zsh/spaceship-prompt/spaceship.zsh-theme
 source /home/nick/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /home/nick/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /home/nick/.zsh/zsh-z/zsh-z.plugin.zsh
@@ -32,6 +32,8 @@ ZSH_DISABLE_COMPFIX=true
 alias ls='exa -l --icons --group-directories-first'
 alias la='exa -la --icons --group-directories-first'
 alias shutdown='systemctl poweroff -i'
+alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
+alias tomia='tomia-git && source /home/nick/env-16.13.1/bin/activate'
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select () {
@@ -84,4 +86,16 @@ export QT4_IM_MODULE=ibus
 # Dành cho những phần mềm dùng thư viện đồ họa clutter/OpenGL
 export CLUTTER_IM_MODULE=ibus
 export GLFW_IM_MODULE=ibus
+export CHROME_EXECUTABLE=chromium
 
+# cd () { builtin cd "$@" && chpwd; }
+# unset_all_project_settings () {
+#   # do whatever it takes to undo the effect of projectSettings.bash,
+#   # e.g. unset variables, remove PATH elements, etc.
+# }
+# chpwd () {
+#   case $PWD in
+#     /mnt/windows/Users/nick/Documents/projects/ceres|/mnt/windows/Users/nick/Documents/projects/ceres/*) . ceres_config;;
+#     *) unset_all_project_settings;;
+#   esac
+# }

@@ -71,3 +71,11 @@ fi
 if [ -d "$HOME/Android/Sdk/platform-tools/" ]; then
   PATH="$HOME/Android/Sdk/platform-tools:$PATH"
 fi
+
+if [ -d "$HOME/.local/share/jre1.8.0_321/bin" ]; then
+  PATH="$HOME/.local/share/jre1.8.0_321/bin:$PATH"
+fi
+
+if [ -d "$HOME/.pub-cache/bin" ]; then
+  PATH="$HOME/.pub-cache/bin:$PATH"
+fi

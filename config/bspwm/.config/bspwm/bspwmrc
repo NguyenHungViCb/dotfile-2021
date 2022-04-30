@@ -61,3 +61,4 @@ bspc rule -a Figma-linux:figma-linux rectangle=1000x700+0+0
 bspc rule -a Mongodb-compass:mongodb-compass rectangle=1000x700+0+0
 bspc rule -a Helloworld:helloworld rectangle=146.7x71.5+0+0
 bspc rule -a mpv rectangle=1300x700+0+0
+bspc rule -a "MEGAsync" state=floating follow=on

@@ -4,8 +4,8 @@ dir=/home/nick/Pictures/nord/
 
 setWal(){
 	sleep 500s
-	feh --bg-center --randomize $dir/*
+	feh --bg-fill --randomize $dir/*
 	setWal
 }
-feh --bg-center --randomize $dir/*
+feh --bg-fill --randomize $dir/*
 setWal

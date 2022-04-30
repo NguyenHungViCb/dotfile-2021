@@ -26,10 +26,10 @@ window:
   #   general: Alacritty
 
   gtk_theme_variant: None
+  # opacity: 0.95
 
 decorations: full
 
-window.opacity: 0.95
 draw_bold_text_with_bright_colors: true
 
 # Font configuration (changes require restart)
@@ -62,6 +62,33 @@ font:
 
 # The definition of color schemes.
 schemes:
+# github Alacritty Colors
+  github_dark_default: &github_dark_default
+    primary:
+      background: '#0d1117'
+      foreground: '#b3b1ad'
+    normal:
+      black:   '#484f58'
+      red:     '#ff7b72'
+      green:   '#3fb950'
+      yellow:  '#d29922'
+      blue:    '#58a6ff'
+      magenta: '#bc8cff'
+      cyan:    '#39c5cf'
+      white:   '#b1bac4'
+    bright:
+      black:   '#6e7681'
+      red:     '#ffa198'
+      green:   '#56d364'
+      yellow:  '#e3b341'
+      blue:    '#79c0ff'
+      magenta: '#d2a8ff'
+      cyan:    '#56d4dd'
+      white:   '#f0f6fc'
+
+    indexed_colors:
+      - { index: 16, color: '#d18616' }
+      - { index: 17, color: '#ffa198' }
   github_dark: &github_dark
     primary:
       background: "#24292e"
@@ -263,26 +290,26 @@ schemes:
         white: "#FBFBFB"
     one_dark: &one_dark
       primary:
-        background: '0x1e2127'
-        foreground: '0xabb2bf'
+        background: '#1e2127'
+        foreground: '#abb2bf'
       normal:
-          black:   '0x1e2127'
-          red:     '0xe06c75'
-          green:   '0x98c379'
-          yellow:  '0xd19a66'
-          blue:    '0x61afef'
-          magenta: '0xc678dd'
-          cyan:    '0x56b6c2'
-          white:   '0x828791'
+          black:   '#1e2127'
+          red:     '#e06c75'
+          green:   '#98c379'
+          yellow:  '#d19a66'
+          blue:    '#61afef'
+          magenta: '#c678dd'
+          cyan:    '#56b6c2'
+          white:   '#828791'
       bright:
-        black:   '0x5c6370'
-        red:     '0xe06c75'
-        green:   '0x98c379'
-        yellow:  '0xd19a66'
-        blue:    '0x61afef'
-        magenta: '0xc678dd'
-        cyan:    '0x56b6c2'
-        white:   '0xe6efff'
+        black:   '#5c6370'
+        red:     '#e06c75'
+        green:   '#98c379'
+        yellow:  '#d19a66'
+        blue:    '#61afef'
+        magenta: '#c678dd'
+        cyan:    '#56b6c2'
+        white:   '#e6efff'
 
 # Apply the color scheme.
-colors: *one_dark
+colors: *github_dark_default
