@@ -54,7 +54,7 @@ font:
 
 # The definition of color schemes.
 schemes:
-    window_11: &window_11
+    window_13: &window_11
       primary:
         background: "#DBE5EE"
         foreground: "#161718"
@@ -69,4 +69,4 @@ schemes:
         white: "#FBFBFB"
 
 # Apply the color scheme.
-colors: *window_11
+colors: *window_13

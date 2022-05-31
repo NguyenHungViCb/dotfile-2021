@@ -11,6 +11,8 @@ then
 		bspc node -s east
 	fi
 	bspc node -t floating
+  xdotool windowsize $focuswindow 675 725
+  xdotool windowmove $focuswindow 375 39
 else
 	bspc node -t tiled
 fi

@@ -1,0 +1,22 @@
+#!/bin/sh
+
+direction=$1
+
+if [[ $direction == "next" ]]; then
+	master=$(bspc query -N -n biggest.local)
+	next=$(bspc query -N -n next.local)
+	if [[ $master == $next ]]; then
+		bspc node -f $master
+	else
+		bspc node -f $(bspc query -N $next -n next.local)
+	fi
+else
+	master=$(bspc query -N -n biggest.local)
+	focused=$(bspc query -N -n .focused)
+	prev=$(bspc query -N -n prev.local)
+	if [[ $master == $focused ]]; then
+		bspc node -f $prev
+	else
+		bspc node -f $(bspc query -N $prev -n prev.local)
+	fi
+fi

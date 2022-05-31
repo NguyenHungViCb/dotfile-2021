@@ -1,0 +1,10 @@
+#!/bin/sh
+
+master=$(bspc query -N -n biggest.local)
+focused=$(bspc query -N -n .focused)
+
+if [[ $master == $focused ]]; then
+  bspc node -f $(bspc query -N -n last.local)
+else
+  bspc node -f biggest.local
+fi

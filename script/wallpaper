@@ -1,11 +1,20 @@
 #!/bin/sh
 
-dir=/home/nick/Pictures/nord/
+type=$1
+dir=/home/nick/Pictures/$type
 
-setWal(){
+setWal() {
 	sleep 500s
-	feh --bg-fill --randomize $dir/*
+	if [ $type == 'nord' ]; then
+		feh --bg-fill --randomize $dir/*
+	else
+		feh --bg-center --randomize $dir/*
+	fi
 	setWal
 }
-feh --bg-fill --randomize $dir/*
+if [ $type == 'nord' ]; then
+	feh --bg-fill --randomize $dir/*
+else
+	feh --bg-center --randomize $dir/*
+fi
 setWal

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+isfloating=$(bspc query -N -n focused.floating)
+
+if [[ -z $isfloating ]]; then
+  bspc node -f last.floating.local
+else
+  bspc node -f last.local
+fi

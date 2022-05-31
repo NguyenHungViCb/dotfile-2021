@@ -1,0 +1,4 @@
+#!/bin/sh
+
+bspc node $(bspc query -N -n @parent) -B
+# bspc node $(bspc query -N -n @parent) -F horizontal

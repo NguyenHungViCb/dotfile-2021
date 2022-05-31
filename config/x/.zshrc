@@ -13,6 +13,7 @@ source /home/nick/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /home/nick/.zsh/zsh-z/zsh-z.plugin.zsh
 
 bindkey '^ ' autosuggest-accept
+bindkey -s '^P' 'change-colorscheme.sh^M'
 
 ZSH_THEME="spaceship"
 SPACESHIP_DIR_TRUNC_REPO=false
@@ -99,3 +100,5 @@ export CHROME_EXECUTABLE=chromium
 #     *) unset_all_project_settings;;
 #   esac
 # }
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

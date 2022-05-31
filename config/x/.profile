@@ -9,7 +9,11 @@ export THEME="dark"
 export HISTFILE=~/.zsh_history
 export HISTSIZE=10000
 export SAVEHIST=10000
-export JAVA_HOME="$HOME/.local/share/jdk1.8.0_321"
+export JAVA_HOME="$HOME/.local/share/jdk-11.0.15.1"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
 setopt appendhistory
 # export LESS_TERMCAP_mb=$'\e[1;32m'
 # export LESS_TERMCAP_md=$'\e[1;32m'
@@ -78,4 +82,8 @@ fi
 
 if [ -d "$HOME/.pub-cache/bin" ]; then
   PATH="$HOME/.pub-cache/bin:$PATH"
+fi
+
+if [ -d "$HOME/go/bin" ]; then
+  PATH="$HOME/go/bin:$PATH"
 fi

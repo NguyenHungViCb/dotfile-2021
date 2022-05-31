@@ -1,19 +1,12 @@
 #!/bin/sh
-# This script keep the window layout stay the same as bspwm after close 
-# required autotiling: pip3 install autotiling
-# Author: Nick 
 
-focuswindow=$(xdotool getwindowfocus)
-geometry=$(xdotool getwindowgeometry $focuswindow | sed -n '/Geometry/{s/.* Geometry: //p}')
-position=$(xdotool getwindowgeometry $focuswindow | sed -n '/Position/{s/.* Position: //p}')
+master=$(bspc query -N -n biggest.local)
+focused=$(bspc query -N -n .focused)
 
-if [[ ( $geometry = '671x734' && "$position" = "8,26 (screen: 0)" ) || ( $geometry = *"768"* && "$position" = "0,0 (screen: 0)" ) ]] 
-then 
-  i3-msg mark swap
-  i3-msg focus right
-  i3-msg swap container with mark swap
-  i3-msg focus right
-  i3-msg kill window focus
+if [[ $master == $focused ]]; then
+  bspc node $(bspc query -N -n last.local) -s $master
+  bspc node -f $(bspc query -N -n biggest.local)
+  bspc node $master -c
 else
-  i3-msg kill window focus
+  bspc node -c
 fi

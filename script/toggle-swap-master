@@ -1,0 +1,16 @@
+#!/bin/sh
+
+isfloating=$(bspc query -N -n focused.floating)
+master=$(bspc query -N -n biggest.local)
+focused=$(bspc query -N -n .focused)
+
+if [[ $focused == $master ]]; then
+  bspc node $master -s $(bspc query -N -n last.local)
+  exit 0
+fi
+if [[ $isfloating ]]; then
+  bspc node -t tiled
+  bspc node $isfloating -s biggest.local
+else
+  bspc node -s biggest.local
+fi

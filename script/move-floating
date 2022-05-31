@@ -1,0 +1,11 @@
+#!/bin/sh
+
+focuswindow=$(xdotool getwindowfocus)
+
+direction=$1
+
+if [[ $direction == 'far-right' ]]; then
+	xdotool windowmove $focuswindow 687 39
+elif [[ $direction == 'far-left' ]]; then
+	xdotool windowmove $focuswindow 9 39
+fi

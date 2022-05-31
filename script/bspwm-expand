@@ -1,0 +1,10 @@
+#!/bin/sh
+
+next=$(bspc query -N -n next.local)
+nextWindow=$(bspc query -N $next -n next.local)
+
+geometry=$(xdotool getwindowgeometry $nextWindow)
+
+if [[ $geometry ]]; then
+
+fi
