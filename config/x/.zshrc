@@ -34,7 +34,7 @@ alias ls='exa -l --icons --group-directories-first'
 alias la='exa -la --icons --group-directories-first'
 alias shutdown='systemctl poweroff -i'
 alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
-alias tomia='tomia-git && source /home/nick/env-16.13.1/bin/activate'
+alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select () {
@@ -102,3 +102,8 @@ export CHROME_EXECUTABLE=chromium
 # }
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/home/nick/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end

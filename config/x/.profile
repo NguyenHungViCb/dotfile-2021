@@ -14,6 +14,16 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
+export REPO_OS_OVERRIDE='linux'
+export PROJECT='$HOME/Documents/projects'
+export ANDROID_HOME="$XDG_DATA_HOME"/android
+export HISTFILE="${XDG_STATE_HOME}"/bash/history
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
+export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 setopt appendhistory
 # export LESS_TERMCAP_mb=$'\e[1;32m'
 # export LESS_TERMCAP_md=$'\e[1;32m'
@@ -42,8 +52,8 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # set PATH so it includes cargo's bin if it exists
-if [ -d "$HOME/.cargo/bin" ] ; then
-	PATH="$HOME/.cargo/bin:$PATH"
+if [ -d "$CARGO_HOME/bin" ] ; then
+	PATH="$CARGO_HOME/bin:$PATH"
 fi
 
 # set PATH so it includes gem packages
@@ -68,8 +78,8 @@ if [ -d "$HOME/.local/share/flutter/bin" ]; then
   PATH="$HOME/.local/share/flutter/bin:$PATH"
 fi
 
-if [ -d "$HOME/Android/Sdk/cmdline-tools/tools/bin" ]; then
-  PATH="$HOME/Android/Sdk/cmdline-tools/tools/bin:$PATH"
+if [ -d "$HOME/Android/Sdk/cmdline-tools/latest/bin" ]; then
+  PATH="$HOME/Android/Sdk/cmdline-tools/latest/bin:$PATH"
 fi
 
 if [ -d "$HOME/Android/Sdk/platform-tools/" ]; then

@@ -51,18 +51,24 @@ super + alt + Return
 # @Navgiations
 # Change focus
 super + {j,k}
-    bspwm-window-cycle {'next', 'prev'}
+    bspwm-window-cycle --focus {'next', 'prev'}
 
 super + {h,l}
   bspc desktop -f {prev.occupied,next.occupied}
 
 # Move window
 super + shift + {j,k}
-    bspc node -s {next.local,prev.local}
+    bspwm-window-cycle --move {'next','prev'}
 
 # Move floating window to far most direction
 alt + ctrl + shift {h,l}
   move-floating {'far-left', 'far-right'}
+
+super + ctrl + {h,j,k,l}
+	bspc node -z {left -5 0,bottom 0 5,top 0 -5,right 5 0}
+
+super + ctrl + shift + {h,j,k,l}
+	bspc node -z {right -5 0,top 0 5,bottom 0 -5,left 5 0}
 
 # Focus master
 super + space
