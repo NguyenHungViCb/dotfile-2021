@@ -4,13 +4,14 @@
 
 source $HOME/.profile
 # Path to your oh-my-zsh installation.
-#export ZSH="/home/nick/.oh-my-zsh"
+#export ZSH="$HOME/.oh-my-zsh"
 
 export PATH=$HOME/.local/bin:$PATH
-source /home/nick/.zsh/spaceship-prompt/spaceship.zsh-theme
-source /home/nick/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /home/nick/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /home/nick/.zsh/zsh-z/zsh-z.plugin.zsh
+source $HOME/.zsh/spaceship-prompt/spaceship.zsh-theme
+source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.zsh/zsh-z/zsh-z.plugin.zsh
+# source $HOME/.zsh/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 bindkey '^ ' autosuggest-accept
 bindkey -s '^P' 'change-colorscheme.sh^M'
@@ -25,7 +26,7 @@ plugins=(
 	git
 	zsh-autosuggestions
 	zsh-syntax-highlighting
-	vi-mode
+	# vi-mode
 )
 
 ZSH_DISABLE_COMPFIX=true
@@ -56,24 +57,24 @@ preexec() { echo -ne '\e[6 q' ;} # Use beam shape cursor for each new prompt.
 # bindkey -v
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-PATH="/home/nick/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/nick/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/nick/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/nick/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/nick/perl5"; export PERL_MM_OPT;
+PATH="$HOME/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 export PATH=/home/$USER/.config/nvcode/utils/bin:$PATH
 setopt autocd
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/nick/.miniconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('$HOME/.miniconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/nick/.miniconda/etc/profile.d/conda.sh" ]; then
-        . "/home/nick/.miniconda/etc/profile.d/conda.sh"
+    if [ -f "$HOME/.miniconda/etc/profile.d/conda.sh" ]; then
+        . "$HOME/.miniconda/etc/profile.d/conda.sh"
     else
-        export PATH="/home/nick/.miniconda/bin:$PATH"
+        export PATH="$HOME/.miniconda/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -104,6 +105,9 @@ export CHROME_EXECUTABLE=chromium
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # pnpm
-export PNPM_HOME="/home/nick/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

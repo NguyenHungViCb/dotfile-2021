@@ -17,13 +17,13 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export REPO_OS_OVERRIDE='linux'
 export PROJECT='$HOME/Documents/projects'
 export ANDROID_HOME="$XDG_DATA_HOME"/android
-export HISTFILE="${XDG_STATE_HOME}"/bash/history
+# export HISTFILE="${XDG_STATE_HOME}"/bash/history
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
-export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
+# export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 setopt appendhistory
 # export LESS_TERMCAP_mb=$'\e[1;32m'
 # export LESS_TERMCAP_md=$'\e[1;32m'
