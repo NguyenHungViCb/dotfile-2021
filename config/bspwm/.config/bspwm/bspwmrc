@@ -3,7 +3,7 @@
 bspc rule -r "*"
 
 startFlashFocus &
-wallpaper 'nord' &
+wallpaper 'darkplus' &
 start-picom &
 wmname LG3D &
 #bspswallow &
@@ -65,5 +65,5 @@ bspc rule -a Mongodb-compass:mongodb-compass rectangle=1000x700+0+0
 bspc rule -a mpv rectangle=1300x700+0+0
 bspc rule -a "MEGAsync" state=floating follow=on
 bspc rule -a alacritty rectangle=644x725+0+0
-bspc rule -a Slack desktop='3'
-bspc rule -a Insomnia desktop='3'
+bspc rule -a slack desktop='3'
+bspc rule -a insomnia desktop='3'

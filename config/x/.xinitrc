@@ -28,5 +28,4 @@ export SXHKD_SHELL=/usr/bin/bash
 
 #xsetroot -cursor_name left_ptr &
 #ibus-daemon -drx &
-exec bspwm -c ~/.config/bspwm/bspwmrc &
-sxhkd
+exec dwm

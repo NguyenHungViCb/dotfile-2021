@@ -10,7 +10,7 @@ env:
 window:
   padding:
     x: 30
-    y: 20
+    y: 30
 
   dynamic_padding: true
 
@@ -26,9 +26,9 @@ window:
   #   general: Alacritty
 
   gtk_theme_variant: None
-  #opacity: 0.95
+  # opacity: 0.80
 
-decorations: full
+decor0tions: full
 
 draw_bold_text_with_bright_colors: true
 
@@ -342,6 +342,20 @@ schemes:
         magenta: '0xce89df'
         cyan:    '0x67cbe7'
         white:   '0xbdc3c2'
+    darkplus: &darkplus
+      primary:
+        background: '#1E1E1E'
+        foreground: '#D4D4D4'
+      normal:
+        black: '#1E1E1E'
+        red: '#D16969'
+        green:   '#6A9955'
+        yellow:  '#DCDCAA'
+        blue:    '#569CD6'
+        magenta: '#D16D9E'
+        cyan:    '#4EC9B0'
+        white:   '#D8DEE9'
+
+        
 # Apply the color scheme.
-colors: *github_dark_default
-# hsl(216, 28%, 20%)
+colors: *darkplus

@@ -11,7 +11,7 @@ super + alt + {q,r}
 
 # terminal emulator
 super + Return
-	alacritty
+	alacritty msg create-window
 
 # close and kill
 super + w

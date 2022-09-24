@@ -1,7 +1,7 @@
 # if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
 #   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 # fi
-
+eval "$(ssh-agent)" >>/dev/null
 source $HOME/.profile
 # Path to your oh-my-zsh installation.
 #export ZSH="$HOME/.oh-my-zsh"
@@ -20,6 +20,7 @@ ZSH_THEME="spaceship"
 SPACESHIP_DIR_TRUNC_REPO=false
 SPACESHIP_PACKAGE_SYMBOL=' '
 SPACESHIP_VI_MODE_COLOR='dark'
+SPACESHIP_DIR_COLOR=blue
 
 plugins=(
 	z
@@ -36,6 +37,7 @@ alias la='exa -la --icons --group-directories-first'
 alias shutdown='systemctl poweroff -i'
 alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+alias cat='bat'
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select () {
@@ -95,12 +97,11 @@ export CHROME_EXECUTABLE=chromium
 #   # do whatever it takes to undo the effect of projectSettings.bash,
 #   # e.g. unset variables, remove PATH elements, etc.
 # }
-# chpwd () {
-#   case $PWD in
-#     /mnt/windows/Users/nick/Documents/projects/ceres|/mnt/windows/Users/nick/Documents/projects/ceres/*) . ceres_config;;
-#     *) unset_all_project_settings;;
-#   esac
-# }
+chpwd () {
+  case $PWD in
+    (*/tomia-web-ui) ssh-add $HOME/.ssh/ceres && nave use 16
+  esac
+}
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
@@ -108,6 +109,11 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# bun completions
+[ -s "/home/nick/.bun/_bun" ] && source "/home/nick/.bun/_bun"
+
+# bun
+export BUN_INSTALL="/home/nick/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+

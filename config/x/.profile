@@ -23,6 +23,8 @@ export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
+export GTK_THEME=WhiteSur-Dark:dark
+export DENO_INSTALL="$HOME/.deno"
 # export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 setopt appendhistory
 # export LESS_TERMCAP_mb=$'\e[1;32m'
@@ -86,8 +88,8 @@ if [ -d "$HOME/Android/Sdk/platform-tools/" ]; then
   PATH="$HOME/Android/Sdk/platform-tools:$PATH"
 fi
 
-if [ -d "$HOME/.local/share/jre1.8.0_321/bin" ]; then
-  PATH="$HOME/.local/share/jre1.8.0_321/bin:$PATH"
+if [ -d "$HOME/.local/share/jre1.8.0_341/bin" ]; then
+  PATH="$HOME/.local/share/jre1.8.0_341/bin:$PATH"
 fi
 
 if [ -d "$HOME/.pub-cache/bin" ]; then
@@ -97,3 +99,8 @@ fi
 if [ -d "$HOME/go/bin" ]; then
   PATH="$HOME/go/bin:$PATH"
 fi
+
+if [ -d "$DENO_INSTALL/bin" ]; then
+  PATH="$DENO_INSTALL/bin:$PATH"
+fi
+. "/home/nick/.local/share/cargo/env"

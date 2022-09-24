@@ -6,10 +6,10 @@ then
 	bspc config window_gap 8
 	bspc config top_padding 30
 	bspc config bottom_padding -4
-	start-picom
+	# start-picom
 else
 	bspc config window_gap 0
-	bspc config top_padding 30
+	bspc config top_padding 28
 	bspc config bottom_padding 0
-	killall picom
+	# killall picom
 fi
