@@ -15,3 +15,26 @@ if [ $localnodect -gt 1 ]; then
 else
     echo "private=on split_dir=${stack_area}"
 fi
+
+wid=$1
+class=$2
+instance=$3
+consequences=$4
+
+
+case "$class" in
+  "Fig")
+    eval "$consequences"
+    WM_ROLE=$(xprop -notype -id $wid WM_WINDOW_ROLE | sed 's%WM_WINDOW_ROLE = %%')
+    
+    if [ "$WM_ROLE" == '"autocomplete"' ]; then
+      echo -n "state=floating layer=above manage=off border=off"
+    fi
+    ;;
+  *)
+    eval "$consequences"
+    WM_ROLE=$(xprop -notype -id $wid WM_WINDOW_ROLE | sed 's%WM_WINDOW_ROLE = %%')
+    if [ "$WM_ROLE" == '"pop-up"' ]; then
+      echo -n "state=floating"
+    fi
+esac

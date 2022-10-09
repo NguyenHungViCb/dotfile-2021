@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/profile.pre.bash" ]] && builtin source "$HOME/.fig/shell/profile.pre.bash"
 export EDITOR=/usr/bin/vim
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
@@ -9,14 +11,14 @@ export THEME="dark"
 export HISTFILE=~/.zsh_history
 export HISTSIZE=10000
 export SAVEHIST=10000
-export JAVA_HOME="$HOME/.local/share/jdk-11.0.15.1"
+# export JAVA_HOME="$HOME/.local/share/jdk-11.0.16.1"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 export REPO_OS_OVERRIDE='linux'
 export PROJECT='$HOME/Documents/projects'
-export ANDROID_HOME="$XDG_DATA_HOME"/android
+export ANDROID_HOME="$HOME/Android/Sdk"
 # export HISTFILE="${XDG_STATE_HOME}"/bash/history
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
@@ -103,4 +105,10 @@ fi
 if [ -d "$DENO_INSTALL/bin" ]; then
   PATH="$DENO_INSTALL/bin:$PATH"
 fi
-. "/home/nick/.local/share/cargo/env"
+
+if [ -d "/home/nick/.local/share/cargo/env" ]; then
+  . "/home/nick/.local/share/cargo/env"
+fi
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/profile.post.bash" ]] && builtin source "$HOME/.fig/shell/profile.post.bash"

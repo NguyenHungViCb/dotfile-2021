@@ -56,8 +56,6 @@ bspc rule -a firefox:firefox:"File Upload" rectangle=1000x700+0+0
 bspc rule -a Code:code:"Open Folder" rectangle=1000x700+0+0
 bspc rule -a Electron9:electron9:"Open" rectangle=1000x700+0+0
 bspc rule -a jetbrains-idea:jetbrains-idea:"New Project" rectangle=1000x700+0+0
-bspc rule -a Zathura rectangle=800x750+0+0
-bspc rule -a Zathura center=on
 bspc rule -a Microsoft-edge:microsoft-edge desktop='^2'
 bspc rule -a Microsoft-edge:microsoft-edge rectangle=1000x700+0+0
 bspc rule -a Figma-linux:figma-linux rectangle=1000x700+0+0
@@ -67,3 +65,6 @@ bspc rule -a "MEGAsync" state=floating follow=on
 bspc rule -a alacritty rectangle=644x725+0+0
 bspc rule -a slack desktop='3'
 bspc rule -a insomnia desktop='3'
+bspc rule -a Fig state=floating layer=above border=off
+bspc rule -a Alacritty:popup state=floating
+bspc rule -a "Genymotion Player":player state=floating
