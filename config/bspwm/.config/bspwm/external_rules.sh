@@ -21,7 +21,6 @@ class=$2
 instance=$3
 consequences=$4
 
-
 case "$class" in
   "Fig")
     eval "$consequences"
@@ -38,3 +37,16 @@ case "$class" in
       echo -n "state=floating"
     fi
 esac
+
+# title=$(xtitle $wid)
+# emulator=$(echo $title | grep "Emulator")
+# if [[ $emulator ]]; then
+  # echo $wid >> ~/emulator.txt
+  # emulatorNode="$(bspc query -N -n $wid)"
+  # title=$(xtitle $emulatorNode)
+  # if [[ "$title" == "Android Emulator -"* ]]; then
+  #   notify-send $title
+    # bspc node $emulatorNode -t floating
+    # xdotool windowsize $emulatorNode 306 649
+  # fi
+# fi

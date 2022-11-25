@@ -36,7 +36,7 @@ XF86MonBrightnessUp
 
 # Desktop screenshot
 Print
-	flameshot gui
+	ksnip --rectarea
 
 # Change ibus engine
 alt + shift + Return

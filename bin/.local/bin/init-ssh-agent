@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [[ -z $SSH_AGENT_PID ]]; then
+  eval "$(ssh-agent)" >>/dev/null
+  exec zsh
+  # ssh-add $HOME/.ssh/ceres
+fi

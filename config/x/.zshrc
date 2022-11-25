@@ -1,9 +1,9 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
 #   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 # fi
-eval "$(ssh-agent)" >>/dev/null
+# eval "$(ssh-agent)" >>/dev/null
+
+eval "$(zoxide init zsh)"
 source $HOME/.profile
 # Path to your oh-my-zsh installation.
 #export ZSH="$HOME/.oh-my-zsh"
@@ -12,7 +12,7 @@ export PATH=$HOME/.local/bin:$PATH
 source $HOME/.zsh/spaceship-prompt/spaceship.zsh-theme
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $HOME/.zsh/zsh-z/zsh-z.plugin.zsh
+# source $HOME/.zsh/zsh-z/zsh-z.plugin.zsh
 # source $HOME/.zsh/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 bindkey '^ ' autosuggest-accept
@@ -25,7 +25,7 @@ SPACESHIP_VI_MODE_COLOR='dark'
 SPACESHIP_DIR_COLOR=blue
 
 plugins=(
-	z
+	# z
 	git
 	zsh-autosuggestions
 	zsh-syntax-highlighting
@@ -40,6 +40,7 @@ alias shutdown='systemctl poweroff -i'
 alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 alias cat='bat'
+# alias lvim="alacritty msg config window.padding.x=0 window.padding.y=0 && lvim"
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select () {
@@ -94,17 +95,6 @@ export CLUTTER_IM_MODULE=ibus
 export GLFW_IM_MODULE=ibus
 export CHROME_EXECUTABLE=chromium
 
-# cd () { builtin cd "$@" && chpwd; }
-# unset_all_project_settings () {
-#   # do whatever it takes to undo the effect of projectSettings.bash,
-#   # e.g. unset variables, remove PATH elements, etc.
-# }
-chpwd () {
-  case $PWD in
-    (*/tomia-web-ui) ssh-add $HOME/.ssh/ceres && nave use 16
-  esac
-}
-
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # pnpm
@@ -118,8 +108,3 @@ export PATH="$PNPM_HOME:$PATH"
 # bun
 export BUN_INSTALL="/home/nick/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
-
-[ -s "/home/nick/.jabba/jabba.sh" ] && source "/home/nick/.jabba/jabba.sh"

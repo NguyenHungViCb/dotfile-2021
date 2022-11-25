@@ -3,12 +3,27 @@
 version=$1
 v11='11'
 v8='8'
+index=$INDEX
 
 if [[ "$version" == *"$v11"* ]]; then
+  if [[ -z $index ]]; then
+    INDEX=0
+  else
+    exit
+    INDEX=${index + 1 }
+  fi
+  killall java
   JAVA_HOME="$HOME/.local/share/jdk-11.0.16.1/" \
   PATH="$JAVA_HOME/bin:$PATH" \
   exec zsh
 elif [[ "$version" == *"$v8"* ]]; then
+  if [[ -z $index ]]; then
+    INDEX=0
+  else
+    INDEX=${index + 1 }
+  fi
+
+  killall java
   JAVA_HOME="$HOME/.local/share/jdk1.8.0_341/" \
   PATH="$JAVA_HOME/bin:$PATH" \
   exec zsh

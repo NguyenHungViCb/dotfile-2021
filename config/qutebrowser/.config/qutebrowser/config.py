@@ -1,9 +1,9 @@
-import gruvbox.draw
+import darkplus.draw
 
 # Load existing settings made via :set
 config.load_autoconfig()
 
-gruvbox.draw.blood(c, {
+darkplus.draw.blood(c, {
     'spacing': {
         'vertical': 6,
         'horizontal': 8

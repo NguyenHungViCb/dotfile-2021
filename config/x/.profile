@@ -110,5 +110,12 @@ if [ -d "/home/nick/.local/share/cargo/env" ]; then
   . "/home/nick/.local/share/cargo/env"
 fi
 
+if [ -d "$HOME/Android/Sdk" ]; then
+  PATH=$PATH:$ANDROID_HOME/emulator
+  PATH=$PATH:$ANDROID_HOME/tools
+  PATH=$PATH:$ANDROID_HOME/tools/bin
+  PATH=$PATH:$ANDROID_HOME/platform-tools
+fi 
+
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/profile.post.bash" ]] && builtin source "$HOME/.fig/shell/profile.post.bash"
