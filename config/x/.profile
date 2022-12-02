@@ -1,5 +1,4 @@
 # Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/profile.pre.bash" ]] && builtin source "$HOME/.fig/shell/profile.pre.bash"
 export EDITOR=/usr/bin/vim
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
@@ -116,6 +115,3 @@ if [ -d "$HOME/Android/Sdk" ]; then
   PATH=$PATH:$ANDROID_HOME/tools/bin
   PATH=$PATH:$ANDROID_HOME/platform-tools
 fi 
-
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/profile.post.bash" ]] && builtin source "$HOME/.fig/shell/profile.post.bash"
