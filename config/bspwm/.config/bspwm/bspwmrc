@@ -69,3 +69,4 @@ bspc rule -a Fig state=floating layer=above border=off
 bspc rule -a Alacritty:popup state=floating
 bspc rule -a "Genymotion Player":player state=floating
 bspc rule -a ksnip:ksnip state=floating rectangle=831x684 center=true
+bspc rule -a Farge state=floating
