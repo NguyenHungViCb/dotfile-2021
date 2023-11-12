@@ -10,14 +10,14 @@ export THEME="dark"
 export HISTFILE=~/.zsh_history
 export HISTSIZE=10000
 export SAVEHIST=10000
-# export JAVA_HOME="$HOME/.local/share/jdk-11.0.16.1"
+export JAVA_HOME="$HOME/Library/Java/JavaVirtualMachines/openjdk-21/Contents/Home"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 export REPO_OS_OVERRIDE='linux'
 export PROJECT='$HOME/Documents/projects'
-export ANDROID_HOME="$HOME/Android/Sdk"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
 # export HISTFILE="${XDG_STATE_HOME}"/bash/history
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
@@ -60,12 +60,11 @@ if [ -d "$CARGO_HOME/bin" ] ; then
 fi
 
 # set PATH so it includes gem packages
-if [ -d "$HOME/.gem/ruby/2.7.0/bin" ] ; then
-	PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
-fi
-
-if [ -d "$HOME/.local/share/gem/ruby/3.0.0/bin" ] ; then
-  PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
+if [ -d "/opt/homebrew/opt/ruby" ] ; then
+  PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+  PATH="/opt/homebrew/lib/ruby/gems/3.2.0/bin:$PATH"
+  export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
+  export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
 fi
 
 # set PATH so it includes .dotnet
@@ -109,9 +108,10 @@ if [ -d "/home/nick/.local/share/cargo/env" ]; then
   . "/home/nick/.local/share/cargo/env"
 fi
 
-if [ -d "$HOME/Android/Sdk" ]; then
+if [ -d $ANDROID_HOME ]; then
   PATH=$PATH:$ANDROID_HOME/emulator
   PATH=$PATH:$ANDROID_HOME/tools
   PATH=$PATH:$ANDROID_HOME/tools/bin
   PATH=$PATH:$ANDROID_HOME/platform-tools
 fi 
+. "/Users/nick/.local/share/cargo/env"
