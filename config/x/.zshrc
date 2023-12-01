@@ -94,7 +94,6 @@ export QT4_IM_MODULE=ibus
 # Dành cho những phần mềm dùng thư viện đồ họa clutter/OpenGL
 export CLUTTER_IM_MODULE=ibus
 export GLFW_IM_MODULE=ibus
-export CHROME_EXECUTABLE=chromium
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
