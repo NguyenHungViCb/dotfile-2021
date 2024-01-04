@@ -20,8 +20,8 @@ local config = {
 		{ key = "F8", mods = "CMD", action = act.ActivatePaneByIndex(7) },
 		{ key = "F9", mods = "CMD", action = act.ActivatePaneByIndex(8) },
 		{ key = "F10", mods = "CMD", action = act.ActivatePaneByIndex(9) },
-    { key = "K", mods = "OPT|SHIFT", action = act.AdjustPaneSize { 'Up', 5 } },
-    { key = "J", mods = "OPT|SHIFT", action = act.AdjustPaneSize { 'Down', 5 } },
+		{ key = "K", mods = "OPT|SHIFT", action = act.AdjustPaneSize({ "Up", 5 }) },
+		{ key = "J", mods = "OPT|SHIFT", action = act.AdjustPaneSize({ "Down", 5 }) },
 		{
 			key = "Enter",
 			mods = "OPT|SHIFT",
@@ -29,28 +29,26 @@ local config = {
 				local initial_tab = initial_pane:tab()
 				local initial_panes = initial_tab:panes_with_info()
 				local initial_pane_count = #initial_panes
-        local tab_height = initial_tab:get_size()['rows']
+				local tab_height = initial_tab:get_size()["rows"]
 
 				if initial_pane_count == 1 then
 					initial_pane:split({ direction = "Right", size = 0.5 })
 				else
-          local panes = initial_tab:panes_with_info()
-          local balance_size = math.floor(tab_height / (#panes - 1))
-          for _, pane in ipairs(panes) do
-
-          end
 					initial_pane:split({ direction = "Bottom", size = 0.5 })
-          -- wezterm.log_info {panes}
-
-          -- local balance_size = math.floor(tab_height / (#panes - 1))
-          -- for _, pane in ipairs(panes) do
-          --   if pane.index > 0 then
-          --     local amount = pane.height - balance_size
-          --     local direction = amount < 0 and "Down" or "Up"
-          --     wezterm.log_info {direction = direction, amount = amount, pane_height = pane.height, balance_height = balance_size, tab_height = tab_height}
-          --     win:perform_action(act.AdjustPaneSize({ direction, math.abs(amount) }), pane.pane)
-          --   end
-          -- end
+					local panes_info = initial_tab:panes_with_info()
+					local balance_height = math.floor(( tab_height  - (#panes_info - 2)) / (#panes_info - 1))
+					for _, pane_info in ipairs(panes_info) do
+						local pane_index = pane_info.index
+						if pane_index > 0 then
+							local pane = pane_info.pane
+							local pane_height = pane:get_dimensions()["viewport_rows"]
+							local amount = pane_height - balance_height
+							local direction = amount < 0 and "Down" or "Up"
+							win:perform_action(act.ActivatePaneByIndex(pane_index), pane)
+							win:perform_action(act.AdjustPaneSize({ direction, math.abs(amount) }), pane)
+              wezterm.log_info {pane_index = pane_index, pane_height = pane_height, amount = amount, direction = direction, tab_height = tab_height}
+						end
+					end
 				end
 			end),
 		},
@@ -79,7 +77,7 @@ local config = {
 				"#D7BA7D",
 				"#569CD6",
 				"#D16D9E",
-        "#4EC9B0",
+				"#4EC9B0",
 				"#abb2bf",
 			},
 		},
