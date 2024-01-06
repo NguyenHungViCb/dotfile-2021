@@ -40,6 +40,7 @@ alias la='exa -la --icons --group-directories-first'
 alias shutdown='systemctl poweroff -i'
 alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+alias nvim='env TERM=wezterm nvim'
 alias cat='bat'
 # alias lvim="alacritty msg config window.padding.x=0 window.padding.y=0 && lvim"
 
