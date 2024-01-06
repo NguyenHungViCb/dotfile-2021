@@ -1,14 +1,25 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 local act_callback = wezterm.action_callback
-local mux = wezterm.mux
+local config = wezterm.config_builder()
 
-local config = {
-	color_scheme = "Darkplus",
-	font = wezterm.font("JetBrainsMono Nerd Font Mono", {
+local themes = require("themes")
+local theme = require("themes.catpupuccinlatte")
+
+local color_schemes = {}
+for _, v in pairs(themes) do
+	if v.name ~= nil then
+		color_schemes[v.name] = v.color_schemes
+	end
+end
+
+local user_config = {
+	color_scheme = theme.name,
+	font = wezterm.font("Monaspace Radon", {
 		weight = "Regular",
 	}),
 	font_size = 14,
+	line_height = 1.3,
 	keys = {
 		{ key = "F1", mods = "CMD", action = act.ActivatePaneByIndex(0) },
 		{ key = "F2", mods = "CMD", action = act.ActivatePaneByIndex(1) },
@@ -22,6 +33,8 @@ local config = {
 		{ key = "F10", mods = "CMD", action = act.ActivatePaneByIndex(9) },
 		{ key = "K", mods = "OPT|SHIFT", action = act.AdjustPaneSize({ "Up", 5 }) },
 		{ key = "J", mods = "OPT|SHIFT", action = act.AdjustPaneSize({ "Down", 5 }) },
+		{ key = "W", mods = "OPT|SHIFT", action = act.DisableDefaultAssignment },
+		{ key = "W", mods = "OPT|SHIFT", action = act.CloseCurrentPane({ confirm = true }) },
 		{
 			key = "Enter",
 			mods = "OPT|SHIFT",
@@ -36,7 +49,7 @@ local config = {
 				else
 					initial_pane:split({ direction = "Bottom", size = 0.5 })
 					local panes_info = initial_tab:panes_with_info()
-					local balance_height = math.floor(( tab_height  - (#panes_info - 2)) / (#panes_info - 1))
+					local balance_height = math.floor((tab_height - (#panes_info - 2)) / (#panes_info - 1))
 					for _, pane_info in ipairs(panes_info) do
 						local pane_index = pane_info.index
 						if pane_index > 0 then
@@ -46,7 +59,13 @@ local config = {
 							local direction = amount < 0 and "Down" or "Up"
 							win:perform_action(act.ActivatePaneByIndex(pane_index), pane)
 							win:perform_action(act.AdjustPaneSize({ direction, math.abs(amount) }), pane)
-              wezterm.log_info {pane_index = pane_index, pane_height = pane_height, amount = amount, direction = direction, tab_height = tab_height}
+							wezterm.log_info({
+								pane_index = pane_index,
+								pane_height = pane_height,
+								amount = amount,
+								direction = direction,
+								tab_height = tab_height,
+							})
 						end
 					end
 				end
@@ -54,8 +73,6 @@ local config = {
 		},
 		{ key = "{", mods = "OPT|SHIFT", action = act.ActivatePaneDirection("Prev") },
 		{ key = "}", mods = "OPT|SHIFT", action = act.ActivatePaneDirection("Next") },
-
-		-- Compare this with the older syntax shown in the section below
 		{ key = "{", mods = "CTRL", action = act.ActivateTabRelative(-1) },
 		{ key = "}", mods = "CTRL", action = act.ActivateTabRelative(1) },
 	},
@@ -66,22 +83,19 @@ local config = {
 		top = 0,
 		bottom = 0,
 	},
-	color_schemes = {
-		Darkplus = {
-			foreground = "#D4D4D4",
-			background = "#1E1E1E",
-			ansi = {
-				"#181818",
-				"#D16969",
-				"#6A9955",
-				"#D7BA7D",
-				"#569CD6",
-				"#D16D9E",
-				"#4EC9B0",
-				"#abb2bf",
-			},
-		},
+	window_frame = {
+		active_titlebar_bg = theme.tab_bar.inactive_tab.bg_color,
+		inactive_titlebar_bg = theme.tab_bar.inactive_tab.bg_color,
+	},
+	color_schemes = color_schemes,
+	inactive_pane_hsb = theme.inactive_pane_hsb,
+	colors = {
+		tab_bar = theme.tab_bar,
 	},
 }
+
+for k, v in pairs(user_config) do
+	config[k] = v
+end
 
 return config
