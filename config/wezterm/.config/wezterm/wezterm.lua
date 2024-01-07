@@ -4,7 +4,7 @@ local act_callback = wezterm.action_callback
 local config = wezterm.config_builder()
 
 local themes = require("themes")
-local theme = require("themes.catpupuccinlatte")
+local theme = require("themes.melange-dark")
 
 local color_schemes = {}
 for _, v in pairs(themes) do
@@ -15,7 +15,7 @@ end
 
 local user_config = {
 	color_scheme = theme.name,
-	font = wezterm.font("Monaspace Radon", {
+	font = wezterm.font("JetBrainsMono Nerd Font Mono", {
 		weight = "Regular",
 	}),
 	font_size = 14,
@@ -33,6 +33,8 @@ local user_config = {
 		{ key = "F10", mods = "CMD", action = act.ActivatePaneByIndex(9) },
 		{ key = "K", mods = "OPT|SHIFT", action = act.AdjustPaneSize({ "Up", 5 }) },
 		{ key = "J", mods = "OPT|SHIFT", action = act.AdjustPaneSize({ "Down", 5 }) },
+		{ key = "H", mods = "OPT|SHIFT", action = act.AdjustPaneSize({ "Left", 5 }) },
+		{ key = "L", mods = "OPT|SHIFT", action = act.AdjustPaneSize({ "Right", 5 }) },
 		{ key = "W", mods = "OPT|SHIFT", action = act.DisableDefaultAssignment },
 		{ key = "W", mods = "OPT|SHIFT", action = act.CloseCurrentPane({ confirm = true }) },
 		{

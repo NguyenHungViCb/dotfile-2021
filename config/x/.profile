@@ -27,6 +27,7 @@ export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 export GTK_THEME=WhiteSur-Dark:dark
 export DENO_INSTALL="$HOME/.deno"
 export CHROME_EXECUTABLE="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+export WEZTERM_THEME="catppuccin-latte"
 # export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 setopt appendhistory
 # export LESS_TERMCAP_mb=$'\e[1;32m'
