@@ -75,10 +75,11 @@ local user_config = {
 		},
 		{ key = "{", mods = "OPT|SHIFT", action = act.ActivatePaneDirection("Prev") },
 		{ key = "}", mods = "OPT|SHIFT", action = act.ActivatePaneDirection("Next") },
-		{ key = "{", mods = "CTRL", action = act.ActivateTabRelative(-1) },
-		{ key = "}", mods = "CTRL", action = act.ActivateTabRelative(1) },
+		{ key = ",", mods = "CMD|SHIFT", action = act.MoveTabRelative(-1) },
+		{ key = ".", mods = "CMD|SHIFT", action = act.MoveTabRelative(1) },
 	},
 	window_decorations = "RESIZE",
+  -- window_background_image = "./melange-dot.png",
 	window_padding = {
 		left = 0,
 		right = 0,

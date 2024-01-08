@@ -16,6 +16,16 @@ return {
 			"#209fb5",
 			"#ccd0da",
 		},
+		brights = {
+			"#5c5f77",
+			"#e64553",
+			"#179299",
+			"#df8e1d",
+			"#1e66f5",
+			"#dd7878",
+			"#209fb5",
+			"#ccd0da",
+		},
 	},
 	tab_bar = {
 		active_tab = {
