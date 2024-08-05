@@ -35,13 +35,14 @@ plugins=(
 
 ZSH_DISABLE_COMPFIX=true
 #ufetch
-alias ls='exa -l --icons --group-directories-first'
-alias la='exa -la --icons --group-directories-first'
+alias ls='eza -l --icons --group-directories-first'
+alias la='eza -la --icons --group-directories-first'
 alias shutdown='systemctl poweroff -i'
 alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 alias nvim='env TERM=wezterm nvim'
 alias cat='bat'
+alias neovide='/Applications/neovide.app/Contents/MacOS/neovide'
 # alias lvim="alacritty msg config window.padding.x=0 window.padding.y=0 && lvim"
 
 # Change cursor shape for different vi modes.

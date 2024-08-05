@@ -4,7 +4,7 @@ local act_callback = wezterm.action_callback
 local config = wezterm.config_builder()
 
 local themes = require("themes")
-local theme = require("themes.melange-dark")
+local theme = require("themes.darkplus")
 
 local color_schemes = {}
 for _, v in pairs(themes) do
