@@ -20,6 +20,25 @@ local user_config = {
 	}),
 	font_size = 14,
 	line_height = 1.3,
+	window_decorations = "RESIZE",
+	-- window_background_image = "./melange-dot.png",
+	-- macos_window_background_blur = 30,
+	-- window_background_opacity = 0.6,
+	window_padding = {
+		left = 0,
+		right = 0,
+		top = 0,
+		bottom = 0,
+	},
+	window_frame = {
+		active_titlebar_bg = theme.tab_bar.inactive_tab.bg_color,
+		inactive_titlebar_bg = theme.tab_bar.inactive_tab.bg_color,
+	},
+	color_schemes = color_schemes,
+	inactive_pane_hsb = theme.inactive_pane_hsb,
+	colors = {
+		tab_bar = theme.tab_bar,
+	},
 	keys = {
 		{ key = "F1", mods = "CMD", action = act.ActivatePaneByIndex(0) },
 		{ key = "F2", mods = "CMD", action = act.ActivatePaneByIndex(1) },
@@ -77,23 +96,6 @@ local user_config = {
 		{ key = "}", mods = "OPT|SHIFT", action = act.ActivatePaneDirection("Next") },
 		{ key = ",", mods = "CMD|SHIFT", action = act.MoveTabRelative(-1) },
 		{ key = ".", mods = "CMD|SHIFT", action = act.MoveTabRelative(1) },
-	},
-	window_decorations = "RESIZE",
-  -- window_background_image = "./melange-dot.png",
-	window_padding = {
-		left = 0,
-		right = 0,
-		top = 0,
-		bottom = 0,
-	},
-	window_frame = {
-		active_titlebar_bg = theme.tab_bar.inactive_tab.bg_color,
-		inactive_titlebar_bg = theme.tab_bar.inactive_tab.bg_color,
-	},
-	color_schemes = color_schemes,
-	inactive_pane_hsb = theme.inactive_pane_hsb,
-	colors = {
-		tab_bar = theme.tab_bar,
 	},
 }
 

@@ -1,0 +1,37 @@
+background=#1E1E1E
+foreground=#D4D4D4
+
+# black
+palette = 0=#181818
+palette = 8=#181818
+# red
+palette = 1=#d16969
+palette = 9=#d16969
+# green
+palette = 2=#6a9955
+palette = 10=#6a9955
+# yellow
+palette = 3=#d7ba7d
+palette = 11=#d7ba7d
+# blue
+palette = 4=#569cd6
+palette = 12=#569cd6
+# purple
+palette = 5=#d16d9e
+palette = 13=#d16d9e
+# aqua
+palette = 6=#4ec9b0
+palette = 14=#4ec9b0
+# white
+palette = 7=#d4d4d4
+palette = 15=#d4d4d4
+
+window-inherit-font-size=false
+window-colorspace=display-p3
+
+font-size=14
+
+adjust-cell-height=30%
+
+selection-background=#264f78
+selection-foreground=#D4D4D4

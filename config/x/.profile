@@ -4,8 +4,8 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 export PATH=~/.npm-global/bin:$PATH
-export TERMINAL="/usr/bin/alacritty"
-export BROWSER="/usr/bin/microsoft-edge-beta"
+# export TERMINAL="/usr/bin/alacritty"
+# export BROWSER="/usr/bin/microsoft-edge-beta"
 export THEME="dark"
 export HISTFILE=~/.zsh_history
 export HISTSIZE=10000
@@ -106,8 +106,8 @@ if [ -d "$DENO_INSTALL/bin" ]; then
   PATH="$DENO_INSTALL/bin:$PATH"
 fi
 
-if [ -d "/home/nick/.local/share/cargo/env" ]; then
-  . "/home/nick/.local/share/cargo/env"
+if [ -d "$HOME/.local/share/cargo/env" ]; then
+  . "$HOME/.local/share/cargo/env"
 fi
 
 if [ -d $ANDROID_HOME ]; then
@@ -116,8 +116,15 @@ if [ -d $ANDROID_HOME ]; then
   PATH=$PATH:$ANDROID_HOME/tools/bin
   PATH=$PATH:$ANDROID_HOME/platform-tools
 fi
-. "/Users/nick/.local/share/cargo/env"
 
 if [ -d /opt/homebrew/opt/mysql-client/bin ]; then
   PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+fi
+
+if [ -d "/Applications/Alacritty.app/Contents/MacOS" ]; then
+  PATH="/Applications/Alacritty.app/Contents/MacOS:$PATH"
+fi
+
+if [ -d "$HOME/.local/share/mongodb/bin" ]; then
+  PATH="$HOME/.local/share/mongodb/bin:$PATH"
 fi

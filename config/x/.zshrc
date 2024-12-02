@@ -9,7 +9,7 @@ source $HOME/.profile
 #export ZSH="$HOME/.oh-my-zsh"
 
 export PATH=$HOME/.local/bin:$PATH
-export NVM_LAZY_LOAD=true
+# export NVM_LAZY_LOAD=true
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.zsh/zsh-nvm/zsh-nvm.plugin.zsh
@@ -100,15 +100,18 @@ export GLFW_IM_MODULE=ibus
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # pnpm
-export PNPM_HOME="$HOME/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+export PNPM_HOME="/Users/hungvinguyen/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 # pnpm end
 
 # bun completions
-[ -s "/home/nick/.bun/_bun" ] && source "/home/nick/.bun/_bun"
+# [ -s "/home/nick/.bun/_bun" ] && source "/home/nick/.bun/_bun"
 
 # bun
-export BUN_INSTALL="/home/nick/.bun"
+export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # export NVM_DIR="$HOME/.nvm"
@@ -118,4 +121,3 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 eval "$(starship init zsh)"
 export REACT_EDITOR=nvim
 set -o AUTO_CD
-export PATH="/opt/homebrew/opt/mongodb-community@4.4/bin:$PATH"
